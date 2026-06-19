@@ -27,7 +27,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row">
                     <a
-                        href="https://mailchi.mp/18c989449932/divhacks-mailing-list"
+                        href="https://forms.gle/5Cyi44u6HcC5iiZF8"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold transition-colors bg-white text-[#D16A99] hover:bg-black hover:text-white"
