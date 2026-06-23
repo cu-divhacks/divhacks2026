@@ -1,17 +1,8 @@
-import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 
 export default function Hero() {
     return (
         <div className="relative flex min-h-screen flex-col overflow-hidden bg-[#D16A99] text-white">
-            <div className="absolute top-0 z-10 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-12">
-                <Image
-                    src="/league-2027-season-trust-badge-template_White.svg"
-                    alt="MLH Trust Badge"
-                    width={130}
-                    height={228}
-                />
-            </div>
             <main className="relative z-10 flex flex-1 flex-col items-center justify-center gap-8 px-6 py-16 text-center lg:items-start lg:gap-10 lg:pl-56 lg:pr-16 lg:text-left">
                 <div className="flex flex-col gap-2 lg:gap-3">
                     <p className="order-first text-base font-semibold uppercase tracking-[0.15em] text-black lg:order-2 lg:tracking-[0.2em] lg:text-2xl">
