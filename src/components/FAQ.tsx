@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import styles from './FAQSection.module.css';
+import styles from './FAQ.module.css';
 
 interface FAQItem {
     question: string;
@@ -13,7 +13,7 @@ interface FAQColumn {
     items: FAQItem[];
 }
 
-const FAQSection: React.FC = () => {
+const FAQ: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
     const faqData: FAQColumn[] = [
@@ -138,4 +138,4 @@ const FAQSection: React.FC = () => {
     );
 };
 
-export default FAQSection;
+export default FAQ;
