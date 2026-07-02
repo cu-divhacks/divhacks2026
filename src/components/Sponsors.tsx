@@ -1,3 +1,3 @@
 export default function Sponsors() {
-    return <div className="sponsors">Sponsors component placeholder</div>;
+    return <div className="sponsors text-transparent">Sponsors component placeholder</div>;
 }

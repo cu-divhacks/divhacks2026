@@ -1,3 +1,3 @@
 export default function Tracks() {
-    return <div className="tracks">Tracks component placeholder</div>;
+    return <div className="tracks text-transparent">Tracks component placeholder</div>;
 }
