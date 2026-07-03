@@ -34,7 +34,7 @@ const FAQ: React.FC = () => {
                 },
                 {
                     question: 'I still have questions!',
-                    answer: 'Reach out to us on Discord, Twitter, or email us at contact@divhacks.com. Our team is happy to help! You can also check our FAQ page on the website.',
+                    answer: 'Reach out to us on Discord, Twitter, or email us at cu.divhacks@gmail.com. Our team is happy to help! You can also check our FAQ page on the website.',
                 },
             ],
         },
