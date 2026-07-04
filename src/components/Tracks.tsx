@@ -104,14 +104,16 @@ export default function Tracks() {
                                 } as React.CSSProperties
                             }
                         >
-                            <img
-                                src={track.icon}
-                                alt={track.name}
-                                className="window-icon"
-                                onError={(e) => {
-                                    (e.target as HTMLImageElement).style.display = "none";
-                                }}
-                            />
+                            <div className="window-icon-circle">
+                                <img
+                                    src={track.icon}
+                                    alt={track.name}
+                                    className="window-icon"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).style.display = "none";
+                                    }}
+                                />
+                            </div>
                             <span className="window-label">{track.name}</span>
                         </button>
                     ))}
@@ -280,7 +282,7 @@ export default function Tracks() {
                     padding-bottom: 4px;
                 }
                 .train-label {
-                    color: #ddd;
+                    color: #ffffff;
                     font-size: 0.6rem;
                     letter-spacing: 1px;
                 }
@@ -292,7 +294,7 @@ export default function Tracks() {
                     flex: 1;
                 }
                 .train-window {
-                    background: #ffffff;
+                    background: #000000;
                     border: 2px solid #626262;
                     border-radius: 6px;
                     display: flex;
@@ -311,6 +313,16 @@ export default function Tracks() {
                     border-color: var(--accent);
                     box-shadow: 0 0 12px var(--accent);
                 }
+                .window-icon-circle {
+                    width: 70px;
+                    height: 70px;
+                    background: #fff;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                }
                 .window-icon {
                     width: 64px;
                     height: 64px;
@@ -318,7 +330,7 @@ export default function Tracks() {
                     border-radius: 50%;
                 }
                 .window-label {
-                    color: #000000;
+                    color: #fffcfc;
                     font-size: 0.75rem;
                     text-align: center;
                     letter-spacing: 0.5px;
