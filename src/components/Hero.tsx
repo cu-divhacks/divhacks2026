@@ -1,5 +1,3 @@
-import { ExternalLink } from "lucide-react";
-
 export default function Hero() {
     return (
         <div className="relative flex min-h-screen flex-col overflow-hidden bg-[#D16A99] text-white">
@@ -34,19 +32,6 @@ export default function Hero() {
                         Interested in sponsoring?
                     </a>
                 </div>
-                <a
-                    href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-black hover:text-white underline underline-offset-3"
-                >
-                    MLH Code of Conduct
-                    <ExternalLink
-                        className="ml-2 inline h-4 w-4"
-                        aria-hidden="true"
-                    />
-                    <span className="sr-only">Opens in a new window</span>
-                </a>
             </main>
         </div>
     );
