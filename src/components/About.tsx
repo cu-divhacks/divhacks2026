@@ -5,7 +5,10 @@ export default function About() {
                 @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
             `}</style>
 
-            <section className="relative min-h-100 text-white py-16 px-6 md:px-12 overflow-hidden shadow-2xl font-sans">
+            <section
+                id="about"
+                className="relative min-h-100 text-white py-16 px-6 md:px-12 overflow-hidden shadow-2xl font-sans"
+            >
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#2e2e2e_1px,transparent_1px)] bg-size-[16px_16px] pointer-events-none"></div>
                 <div
                     className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"

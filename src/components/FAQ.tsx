@@ -93,7 +93,7 @@ const FAQ: React.FC = () => {
     };
 
     return (
-        <div className={styles.container}>
+        <section id="faq" className={styles.container}>
             <div className={styles.faqHeader}>
                 <h1>FAQ</h1>
             </div>
@@ -134,7 +134,7 @@ const FAQ: React.FC = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 

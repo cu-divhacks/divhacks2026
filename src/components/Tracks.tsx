@@ -67,7 +67,7 @@ export default function Tracks() {
     const [selectedTrack, setSelectedTrack] = useState(tracks[0]);
     
     return (
-        <section className="tracks-section">
+        <section id="tracks" className="tracks-section">
             {/* Title sign */ }
             <div className="tracks-sign-wrapper">
                 <div className="tracks-sign-posts">
