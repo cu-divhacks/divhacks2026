@@ -77,10 +77,7 @@ export default function About() {
                                 only reimagines what diversity should look like
                                 in the tech industry but gives students the
                                 tools to{" "}
-                                <span
-                                    style={{ color: "#fcde57" }}
-                                    className="font-semibold"
-                                >
+                                <span className="font-semibold text-normalyellow">
                                     use technology to implement change
                                 </span>
                                 .

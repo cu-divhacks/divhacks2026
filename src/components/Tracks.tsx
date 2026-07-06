@@ -22,9 +22,9 @@ const tracks = [
         id: "live-better",
         name: "Live Better",
         badge: "STRICTLY PERSONAL UTILITY",
-        badgeColor: "var(--color-normalorange)",
+        badgeColor: "var(--color-normalyellow)",
         icon: "/images/live-better.png",
-        accentColor: "var(--color-normalorange)",
+        accentColor: "var(--color-normalyellow)",
         description:
             "The grind of daily NYC life, optimized. Everything besides transportation — helping one person's day run smoother.",
         tags: ["Groceries", "Meal Planning", "Apartment Hacks"],

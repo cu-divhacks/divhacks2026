@@ -8,6 +8,7 @@
 @theme {
   --color-normalorange: #fb7e03;
   --color-normalpurple: #882cac;
+  --color-normalyellow: #ffd03e;
 }
 
 @theme inline {
