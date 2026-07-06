@@ -34,12 +34,6 @@ export default function Header() {
                     rel="noopener noreferrer"
                     className="group relative isolate ml-1 inline-flex items-center justify-center rounded-full border-2 border-black bg-[#fcde57] px-6 py-3 text-base font-black uppercase tracking-[0.16em] text-black shadow-[4px_4px_0_0_#000] transition-transform hover:-translate-y-0.5 hover:scale-[1.02]"
                 >
-                    {/* <span className="absolute -inset-2 -z-10">
-                        <span className="absolute left-1/2 top-1/2 h-12 w-16 -translate-x-1/2 -translate-y-1/2 rounded-[999px] bg-[#f8119f] blur-[2px] opacity-90 rotate-[-14deg]" />
-                        <span className="absolute left-[18%] top-[18%] h-5 w-5 rounded-full bg-[#882cac] opacity-90" />
-                        <span className="absolute right-[10%] top-[24%] h-4 w-4 rounded-full bg-[#fb7e03] opacity-95" />
-                        <span className="absolute bottom-[14%] left-[18%] h-3 w-3 rounded-full bg-[#000000] opacity-80" />
-                    </span> */}
                     Apply
                 </a>
             </nav>

@@ -22,9 +22,9 @@ const tracks = [
         id: "live-better",
         name: "Live Better",
         badge: "STRICTLY PERSONAL UTILITY",
-        badgeColor: "#ffb347",
+        badgeColor: "var(--color-normalorange)",
         icon: "/images/live-better.png",
-        accentColor: "#ffb347",
+        accentColor: "var(--color-normalorange)",
         description:
             "The grind of daily NYC life, optimized. Everything besides transportation — helping one person's day run smoother.",
         tags: ["Groceries", "Meal Planning", "Apartment Hacks"],
@@ -239,11 +239,11 @@ export default function Tracks() {
                 .sign-post {
                     width: 14px;
                     height: 40px;
-                    background: #e07b20;
+                    background: var(--color-normalorange);
                     border-radius: 2px;
                 }
                 .tracks-sign {
-                    background: #e07b20;
+                    background: var(--color-normalorange);
                     padding: 14px 60px;
                     border-radius: 6px;
                     margin-top: -2px;
@@ -268,22 +268,22 @@ export default function Tracks() {
                     width: 100%;
                     max-width: 1100px;
                     display: flex;
-                    background: #b07db0;
+                    background: var(--color-normalpurple);
                     border-radius: 8px 8px 0 0;
-                    border: 3px solid #c090c0;
+                    border: 3px solid var(--color-normalpurple);
                     overflow: hidden;
                     min-height: 160px;
                 }
                 .train-side-panel {
                     width: 80px;
-                    background: #9a6a9a;
+                    background: var(--color-normalpurple);
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     gap: 12px;
                     padding: 16px 8px;
-                    border-right: 3px solid #c090c0;
+                    border-right: 3px solid var(--color-normalpurple);
                     flex-shrink: 0;
                 }
                 .train-light {
@@ -294,8 +294,8 @@ export default function Tracks() {
                     box-shadow: 0 0 8px #ffd700;
                 }
                 .train-door {
-                    background: #7a507a;
-                    border: 2px solid #c090c0;
+                    background: var(--color-normalpurple);
+                    border: 2px solid var(--color-normalpurple);
                     border-radius: 4px;
                     width: 48px;
                     height: 60px;
@@ -371,13 +371,13 @@ export default function Tracks() {
                 .train-wheels {
                     width: 100%;
                     max-width: 1100px;
-                    background: #9a6a9a;
+                    background: var(--color-normalpurple);
                     display: flex;
                     align-items: center;
                     padding: 6px 20px;
                     gap: 0;
                     justify-content: space-around;
-                    border: 2px solid #c090c0;
+                    border: 2px solid var(--color-normalpurple);
                     border-top: none;
                 }
                 .wheel {
@@ -395,7 +395,7 @@ export default function Tracks() {
                 }
                 .rail {
                     height: 6px;
-                    background: #e07b20;
+                    background: var(--color-normalorange);
                     margin: 2px 0;
                 }
                 .rail-ties {
@@ -491,7 +491,7 @@ export default function Tracks() {
                     flex-shrink: 0;
                 }
                 .focus-label {
-                    color: #ffb347;
+                    color: var(--color-normalorange);
                     font-size: 0.7rem;
                     font-weight: 700;
                     letter-spacing: 2px;

@@ -5,6 +5,11 @@
   --foreground: #171717;
 }
 
+@theme {
+  --color-normalorange: #fb7e03;
+  --color-normalpurple: #882cac;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
