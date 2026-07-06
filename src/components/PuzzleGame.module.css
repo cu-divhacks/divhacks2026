@@ -3,7 +3,7 @@
     min-height: 100vh;
     font-family: "Arial Black", "Trebuchet MS", "Impact", sans-serif;
     color: #ffffff;
-    background: #2a1742;
+    background: color-mix(in srgb, var(--color-normalpurple) 15%, transparent);
     display: grid;
     place-items: center;
     padding: 20px;

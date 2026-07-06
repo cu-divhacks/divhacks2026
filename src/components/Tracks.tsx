@@ -10,25 +10,27 @@ const tracks = [
         badgeColor: "#4fc3f7",
         icon: "/images/move-smarter.png",
         accentColor: "#4fc3f7",
-        description: "Getting around the city, but better. Anything about how people and things move through NYC",
+        description:
+            "Getting around the city, but better. Anything about how people and things move through NYC",
         tags: ["Transit", "Bikes", "Optimization"],
-        focusAreas: ["Transit . Bikes . Scooters . Commute",
-            "Optimization . Carbon Footprint . Energy"
+        focusAreas: [
+            "Transit . Bikes . Scooters . Commute",
+            "Optimization . Carbon Footprint . Energy",
         ],
     },
     {
         id: "live-better",
         name: "Live Better",
         badge: "STRICTLY PERSONAL UTILITY",
-        badgeColor: "#ffb347",
+        badgeColor: "var(--color-normalyellow)",
         icon: "/images/live-better.png",
-        accentColor: "#ffb347",
+        accentColor: "var(--color-normalyellow)",
         description:
-        "The grind of daily NYC life, optimized. Everything besides transportation — helping one person's day run smoother.",
+            "The grind of daily NYC life, optimized. Everything besides transportation — helping one person's day run smoother.",
         tags: ["Groceries", "Meal Planning", "Apartment Hacks"],
         focusAreas: [
-        "Groceries . Laundry . Meal Planning",
-        "Shortest Lines . Small Apartment Hacks",
+            "Groceries . Laundry . Meal Planning",
+            "Shortest Lines . Small Apartment Hacks",
         ],
     },
     {
@@ -39,11 +41,11 @@ const tracks = [
         icon: "/images/know-your-city.png",
         accentColor: "#81c784",
         description:
-        "NYC for people who actually live here. Helps people feel more connected to their neighborhood and local culture.",
+            "NYC for people who actually live here. Helps people feel more connected to their neighborhood and local culture.",
         tags: ["Hidden Gems", "Local Events", "Neighborhood"],
         focusAreas: [
-        "Hidden Gems . Hyperlocal Events . Arts",
-        "Popups . Food Trucks . Neighborhood Culture",
+            "Hidden Gems . Hyperlocal Events . Arts",
+            "Popups . Food Trucks . Neighborhood Culture",
         ],
     },
     {
@@ -54,25 +56,25 @@ const tracks = [
         icon: "/images/hack-the-city.png",
         accentColor: "#ef5350",
         description:
-        "Data that makes urban systems accessible. Makes messy urban data more visual and actionable.",
+            "Data that makes urban systems accessible. Makes messy urban data more visual and actionable.",
         tags: ["Air Quality", "Housing Equity", "Rent Trends"],
         focusAreas: [
-        "Air Quality . Green Space . Housing Equity",
-        "Pedestrian Traffic . Rent Trends",
+            "Air Quality . Green Space . Housing Equity",
+            "Pedestrian Traffic . Rent Trends",
         ],
     },
-]
+];
 
 export default function Tracks() {
     const [selectedTrack, setSelectedTrack] = useState(tracks[0]);
-    
+
     return (
-        <section className="tracks-section">
-            {/* Title sign */ }
+        <section id="tracks" className="tracks-section">
+            {/* Title sign */}
             <div className="tracks-sign-wrapper">
                 <div className="tracks-sign-posts">
-                    <div className="sign-post"/>
-                    <div className="sign-post"/>
+                    <div className="sign-post" />
+                    <div className="sign-post" />
                 </div>
                 <div className="tracks-sign">
                     <h2 className="tracks-title">TRACKS</h2>
@@ -81,22 +83,24 @@ export default function Tracks() {
 
             <p className="tracks-subtitle">Choose Your Station</p>
 
-            { /* Train Car */ }
+            {/* Train Car */}
             <div className="train-wrapper">
-                {/* Left side panel */ }
+                {/* Left side panel */}
                 <div className="train-side-panel">
-                    <div className="train-light"/>
+                    <div className="train-light" />
                     <div className="train-door">
-                        <span className="train-label">TRK - 0{tracks.indexOf(selectedTrack) + 1}</span>
+                        <span className="train-label">
+                            TRK - 0{tracks.indexOf(selectedTrack) + 1}
+                        </span>
                     </div>
                 </div>
-                
-                { /* Windows */ }
+
+                {/* Windows */}
                 <div className="train-windows">
                     {tracks.map((track) => (
                         <button
                             key={track.id}
-                            className={`train-window ${selectedTrack.id === track.id ? "active" : ""}` }
+                            className={`train-window ${selectedTrack.id === track.id ? "active" : ""}`}
                             onClick={() => setSelectedTrack(track)}
                             style={
                                 {
@@ -110,7 +114,9 @@ export default function Tracks() {
                                     alt={track.name}
                                     className="window-icon"
                                     onError={(e) => {
-                                        (e.target as HTMLImageElement).style.display = "none";
+                                        (
+                                            e.target as HTMLImageElement
+                                        ).style.display = "none";
                                     }}
                                 />
                             </div>
@@ -120,32 +126,36 @@ export default function Tracks() {
                 </div>
             </div>
 
-            { /* Train Wheels */ }
+            {/* Train Wheels */}
             <div className="train-wheels">
                 {Array.from({ length: 10 }).map((_, i) => (
-                <div key={i} className="wheel" />
+                    <div key={i} className="wheel" />
                 ))}
             </div>
             <div className="track-rails">
-                <div className="rail"/>
-                <div className="rail"/>
+                <div className="rail" />
+                <div className="rail" />
                 <div className="rail-ties">
                     {Array.from({ length: 20 }).map((_, i) => (
-                        <div key={i} className="rail-tie"/>
+                        <div key={i} className="rail-tie" />
                     ))}
                 </div>
             </div>
 
-            { /* Detail panel */ }
+            {/* Detail panel */}
             <div className="track-detail">
                 <div className="detail-left">
-                    <div className="detail-icon-box" style={{ borderColor: selectedTrack.accentColor }}>
-                        <img 
+                    <div
+                        className="detail-icon-box"
+                        style={{ borderColor: selectedTrack.accentColor }}
+                    >
+                        <img
                             src={selectedTrack.icon}
                             alt={selectedTrack.name}
                             className="detail-icon"
                             onError={(e) => {
-                                (e.target as HTMLImageElement).style.display = "none";
+                                (e.target as HTMLImageElement).style.display =
+                                    "none";
                             }}
                         />
                     </div>
@@ -159,12 +169,17 @@ export default function Tracks() {
                             </h3>
                             <span
                                 className="detail-badge"
-                                style={{ borderColor: selectedTrack.accentColor, color: selectedTrack.accentColor }}
+                                style={{
+                                    borderColor: selectedTrack.accentColor,
+                                    color: selectedTrack.accentColor,
+                                }}
                             >
                                 {selectedTrack.badge}
                             </span>
                         </div>
-                        <p className="detail-description">{selectedTrack.description}</p>
+                        <p className="detail-description">
+                            {selectedTrack.description}
+                        </p>
                         <div className="detail-tags">
                             {selectedTrack.tags.map((tag) => (
                                 <span key={tag} className="tag">
@@ -176,7 +191,10 @@ export default function Tracks() {
                 </div>
 
                 <div className="detail-focus">
-                    <p className="focus-label" style={{ color: selectedTrack.accentColor }}>
+                    <p
+                        className="focus-label"
+                        style={{ color: selectedTrack.accentColor }}
+                    >
                         FOCUS AREAS
                     </p>
                     {selectedTrack.focusAreas.map((area, i) => (
@@ -184,7 +202,13 @@ export default function Tracks() {
                             . {area}
                         </p>
                     ))}
-                    <div className="focus-badge" style={{ borderColor: selectedTrack.accentColor, color: selectedTrack.accentColor }}>
+                    <div
+                        className="focus-badge"
+                        style={{
+                            borderColor: selectedTrack.accentColor,
+                            color: selectedTrack.accentColor,
+                        }}
+                    >
                         {selectedTrack.badge}
                     </div>
                 </div>
@@ -201,7 +225,7 @@ export default function Tracks() {
                     position: relative;
                     overflow: hidden;
                 }
-                
+
                 .tracks-sign-wrapper {
                     display: flex;
                     flex-direction: column;
@@ -215,11 +239,11 @@ export default function Tracks() {
                 .sign-post {
                     width: 14px;
                     height: 40px;
-                    background: #e07b20;
+                    background: var(--color-normalorange);
                     border-radius: 2px;
                 }
                 .tracks-sign {
-                    background: #e07b20;
+                    background: var(--color-normalorange);
                     padding: 14px 60px;
                     border-radius: 6px;
                     margin-top: -2px;
@@ -230,7 +254,7 @@ export default function Tracks() {
                     color: white;
                     letter-spacing: 6px;
                     margin: 0;
-                    text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+                    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
                     font-family: var(--font-geist-mono), monospace;
                 }
                 .tracks-subtitle {
@@ -244,22 +268,22 @@ export default function Tracks() {
                     width: 100%;
                     max-width: 1100px;
                     display: flex;
-                    background: #b07db0;
+                    background: var(--color-normalpurple);
                     border-radius: 8px 8px 0 0;
-                    border: 3px solid #c090c0;
+                    border: 3px solid var(--color-normalpurple);
                     overflow: hidden;
                     min-height: 160px;
                 }
                 .train-side-panel {
                     width: 80px;
-                    background: #9a6a9a;
+                    background: var(--color-normalpurple);
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     gap: 12px;
                     padding: 16px 8px;
-                    border-right: 3px solid #c090c0;
+                    border-right: 3px solid var(--color-normalpurple);
                     flex-shrink: 0;
                 }
                 .train-light {
@@ -270,8 +294,8 @@ export default function Tracks() {
                     box-shadow: 0 0 8px #ffd700;
                 }
                 .train-door {
-                    background: #7a507a;
-                    border: 2px solid #c090c0;
+                    background: var(--color-normalpurple);
+                    border: 2px solid var(--color-normalpurple);
                     border-radius: 4px;
                     width: 48px;
                     height: 60px;
@@ -304,7 +328,9 @@ export default function Tracks() {
                     gap: 8px;
                     padding: 16px 8px;
                     cursor: pointer;
-                    transition: border-color 0.2s, box-shadow 0.2s;
+                    transition:
+                        border-color 0.2s,
+                        box-shadow 0.2s;
                 }
                 .train-window:hover {
                     border-color: var(--accent);
@@ -340,18 +366,18 @@ export default function Tracks() {
                     font-weight: 700;
                     text-transform: uppercase;
                 }
-                
+
                 /* Train Wheels and Rails */
                 .train-wheels {
                     width: 100%;
                     max-width: 1100px;
-                    background: #9a6a9a;
+                    background: var(--color-normalpurple);
                     display: flex;
                     align-items: center;
                     padding: 6px 20px;
                     gap: 0;
                     justify-content: space-around;
-                    border: 2px solid #c090c0;
+                    border: 2px solid var(--color-normalpurple);
                     border-top: none;
                 }
                 .wheel {
@@ -369,7 +395,7 @@ export default function Tracks() {
                 }
                 .rail {
                     height: 6px;
-                    background: #e07b20;
+                    background: var(--color-normalorange);
                     margin: 2px 0;
                 }
                 .rail-ties {
@@ -454,7 +480,7 @@ export default function Tracks() {
                     padding: 4px 14px;
                     font-size: 0.8rem;
                 }
-            
+
                 /* Focus areas */
                 .detail-focus {
                     background: #111;
@@ -465,7 +491,7 @@ export default function Tracks() {
                     flex-shrink: 0;
                 }
                 .focus-label {
-                    color: #ffb347;
+                    color: var(--color-normalorange);
                     font-size: 0.7rem;
                     font-weight: 700;
                     letter-spacing: 2px;
@@ -487,21 +513,21 @@ export default function Tracks() {
                     text-align: center;
                     font-weight: 600;
                 }
-            
+
                 @media (max-width: 768px) {
-                .train-windows {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-                .track-detail {
-                    flex-direction: column;
-                }
-                .detail-focus {
-                    min-width: unset;
-                    width: 100%;
-                }
-                .tracks-title {
-                    font-size: 2rem;
-                }
+                    .train-windows {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    .track-detail {
+                        flex-direction: column;
+                    }
+                    .detail-focus {
+                        min-width: unset;
+                        width: 100%;
+                    }
+                    .tracks-title {
+                        font-size: 2rem;
+                    }
                 }
             `}</style>
         </section>
