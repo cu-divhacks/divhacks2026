@@ -5,6 +5,7 @@ import Tracks from "../components/Tracks";
 import Sponsors from "../components/Sponsors";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import Puzzle from "../components/PuzzleGame";
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
             <Tracks />
             <Sponsors />
             <FAQ />
+            <Puzzle />
             <Footer />
         </>
     );
