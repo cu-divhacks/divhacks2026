@@ -148,7 +148,7 @@ const styles = `
     margin-top: 48px;
     width: 100%;
     min-height: 116px;
-    background: rgba(247, 200, 42, 1);
+    background: var(--color-normalyellow);
     display: flex;
     align-items: center;
   }
@@ -216,99 +216,108 @@ const styles = `
 `;
 
 export default function Hero() {
-  const [timeLeft, setTimeLeft] = useState(0);
+    const [timeLeft, setTimeLeft] = useState(0);
 
-  useEffect(() => {
-    const update = () =>
-      setTimeLeft(Math.max(COUNTDOWN_TARGET - Date.now(), 0));
-    update();
-    const id = setInterval(update, 1000);
-    return () => clearInterval(id);
-  }, []);
+    useEffect(() => {
+        const update = () =>
+            setTimeLeft(Math.max(COUNTDOWN_TARGET - Date.now(), 0));
+        update();
+        const id = setInterval(update, 1000);
+        return () => clearInterval(id);
+    }, []);
 
-  const days = Math.floor(timeLeft / 86400000);
-  const hours = Math.floor((timeLeft % 86400000) / 3600000);
-  const minutes = Math.floor((timeLeft % 3600000) / 60000);
-  const seconds = Math.floor((timeLeft % 60000) / 1000);
+    const days = Math.floor(timeLeft / 86400000);
+    const hours = Math.floor((timeLeft % 86400000) / 3600000);
+    const minutes = Math.floor((timeLeft % 3600000) / 60000);
+    const seconds = Math.floor((timeLeft % 60000) / 1000);
 
-  return (
-    <>
-      <style>{styles}</style>
+    return (
+        <>
+            <style>{styles}</style>
 
-      <section className="hero">
-        <div className="banner">
-          <div className="banner-inner">
-            <span className="banner-title">
-              DivHacks 2026
-            </span>
-            <span className="banner-sep">•</span>
-            <div className="countdown">
-              {[
-                { label: "Days", value: days },
-                { label: "Hours", value: hours },
-                { label: "Min", value: minutes },
-                { label: "Sec", value: seconds },
-              ].map((unit) => (
-                <div className="countdown-item" key={unit.label}>
-                  <span className="countdown-num">
-                    {String(unit.value).padStart(2, "0")}
-                  </span>
-                  <span className="countdown-label">{unit.label}</span>
+            <section className="hero">
+                <div className="banner">
+                    <div className="banner-inner">
+                        <span className="banner-title">DivHacks 2026</span>
+                        <span className="banner-sep">•</span>
+                        <div className="countdown">
+                            {[
+                                { label: "Days", value: days },
+                                { label: "Hours", value: hours },
+                                { label: "Min", value: minutes },
+                                { label: "Sec", value: seconds },
+                            ].map((unit) => (
+                                <div
+                                    className="countdown-item"
+                                    key={unit.label}
+                                >
+                                    <span className="countdown-num">
+                                        {String(unit.value).padStart(2, "0")}
+                                    </span>
+                                    <span className="countdown-label">
+                                        {unit.label}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="hero-bg-glow" />
+                <div className="hero-bg-glow" />
 
-        <div className="hero-body">
-          <div className="hero-left">
-            <h1 className="headline">
-              <span className="word-line-1">
-                <span className="word-concrete">Concrete</span>
-              </span>
-              <span className="word-line-2">
-                <span className="word-jungle">Jungle</span>
-              </span>
-            </h1>
+                <div className="hero-body">
+                    <div className="hero-left">
+                        <h1 className="headline">
+                            <span className="word-line-1">
+                                <span className="word-concrete">Concrete</span>
+                            </span>
+                            <span className="word-line-2">
+                                <span className="word-jungle">Jungle</span>
+                            </span>
+                        </h1>
 
-            <p className="hero-sub">
-              A hackathon for building smarter solutions for the communities we live in.
-              Food. Housing. Transportation.<br/>
-            </p>
+                        <p className="hero-sub">
+                            A hackathon for building smarter solutions for the
+                            communities we live in. Food. Housing.
+                            Transportation.
+                            <br />
+                        </p>
 
-            <div className="hero-ctas">
-              <a
-                href="https://forms.gle/5Cyi44u6HcC5iiZF8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                Pre-Register Now
-              </a>
-            </div>
+                        <div className="hero-ctas">
+                            <a
+                                href="https://forms.gle/5Cyi44u6HcC5iiZF8"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-primary"
+                            >
+                                Pre-Register Now
+                            </a>
+                        </div>
 
-            <div className="meta-row">
-              <div className="meta-item">
-                <span className="meta-label">When</span>
-                <span className="meta-val">September 26–27, 2026</span>
-              </div>
-              <div className="meta-item">
-                <span className="meta-label">Where</span>
-                <span className="meta-val">Columbia University</span>
-              </div>
-            </div>
-          </div>
+                        <div className="meta-row">
+                            <div className="meta-item">
+                                <span className="meta-label">When</span>
+                                <span className="meta-val">
+                                    September 26–27, 2026
+                                </span>
+                            </div>
+                            <div className="meta-item">
+                                <span className="meta-label">Where</span>
+                                <span className="meta-val">
+                                    Columbia University
+                                </span>
+                            </div>
+                        </div>
+                    </div>
 
-          <div className="hero-right">
-            <img
-              src="/images/Divhacks-logo.png"
-              alt="DivHacks Logo"
-              className="hero-image"
-            />
-          </div>
-        </div>
-      </section>
-    </>
-  );
+                    <div className="hero-right">
+                        <img
+                            src="/images/Divhacks-logo.png"
+                            alt="DivHacks Logo"
+                            className="hero-image"
+                        />
+                    </div>
+                </div>
+            </section>
+        </>
+    );
 }
