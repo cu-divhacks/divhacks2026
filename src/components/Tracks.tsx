@@ -41,7 +41,7 @@ const tracks = [
         icon: "/images/know-your-city.png",
         accentColor: "#81c784",
         description:
-            "NYC for people who actually live here. Helps people feel more connected to their neighborhood and local culture.",
+            "NYC, block by block. Helping people feel more connected to their neighborhood and local culture.",
         tags: ["Hidden Gems", "Local Events", "Neighborhood"],
         focusAreas: [
             "Hidden Gems . Hyperlocal Events . Arts",
@@ -51,12 +51,12 @@ const tracks = [
     {
         id: "hack-the-city",
         name: "Hack the City",
-        badge: "DATA & ACCESSIBILITY",
+        badge: "DATA & APPROACHABILITY",
         badgeColor: "#ef5350",
         icon: "/images/hack-the-city.png",
         accentColor: "#ef5350",
         description:
-            "Data that makes urban systems accessible. Makes messy urban data more visual and actionable.",
+            "Data that makes urban systems approachable. Makes messy urban data more visual and actionable.",
         tags: ["Air Quality", "Housing Equity", "Rent Trends"],
         focusAreas: [
             "Air Quality . Green Space . Housing Equity",
@@ -90,7 +90,7 @@ export default function Tracks() {
                     <div className="train-light" />
                     <div className="train-door">
                         <span className="train-label">
-                            TRK - 0{tracks.indexOf(selectedTrack) + 1}
+                            0{tracks.indexOf(selectedTrack) + 1}
                         </span>
                     </div>
                 </div>
@@ -190,7 +190,7 @@ export default function Tracks() {
                     </div>
                 </div>
 
-                <div className="detail-focus">
+                {/* <div className="detail-focus">
                     <p
                         className="focus-label"
                         style={{ color: selectedTrack.accentColor }}
@@ -211,7 +211,7 @@ export default function Tracks() {
                     >
                         {selectedTrack.badge}
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <style jsx>{`
@@ -305,7 +305,7 @@ export default function Tracks() {
                 }
                 .train-label {
                     color: #ffffff;
-                    font-size: 0.6rem;
+                    font-size: 1rem;
                     letter-spacing: 1px;
                 }
                 .train-windows {

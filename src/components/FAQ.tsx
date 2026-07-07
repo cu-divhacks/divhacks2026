@@ -55,7 +55,7 @@ const FAQ: React.FC = () => {
                 },
                 {
                     question: "Will there be overnight accommodations?",
-                    answer: "Yes, we provide on-site accommodations for all registered participants. Just confirm your attendance and we'll handle the rest.",
+                    answer: "We will provide an overnight hacking space where non-Columbia/Barnard students can work and sleep.",
                 },
             ],
         },
