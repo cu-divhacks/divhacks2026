@@ -1,13 +1,9 @@
 export default function About() {
     return (
         <>
-            <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
-            `}</style>
-
             <section
                 id="about"
-                className="relative min-h-100 text-white py-16 px-6 md:px-12 overflow-hidden shadow-2xl font-sans"
+                className="relative min-h-100 text-white py-16 px-6 md:px-12 overflow-hidden shadow-2xl"
             >
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#2e2e2e_1px,transparent_1px)] bg-size-[16px_16px] pointer-events-none"></div>
                 <div
@@ -27,7 +23,6 @@ export default function About() {
                         <h2
                             className="text-7xl md:text-8xl select-none transform -rotate-3 text-center md:text-left text-normalorange"
                             style={{
-                                fontFamily: "'Sedgwick Ave Display', cursive",
                                 textShadow:
                                     "3px 3px 0px #f8119f, 6px 6px 0px var(--color-normalpurple), 9px 9px 0px black",
                                 WebkitTextStroke: "2px black",

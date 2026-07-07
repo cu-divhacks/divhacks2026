@@ -45,6 +45,7 @@
     margin-bottom: 8px;
     border-bottom: 2px solid #00ffff;
     padding-bottom: 8px;
+    font-family: var(--font-title), sans-serif;
 }
 
 .faqItem {

@@ -221,7 +221,6 @@ export default function Tracks() {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    font-family: var(--font-geist-sans), sans-serif;
                     position: relative;
                     overflow: hidden;
                 }
@@ -255,7 +254,6 @@ export default function Tracks() {
                     letter-spacing: 6px;
                     margin: 0;
                     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
-                    font-family: var(--font-geist-mono), monospace;
                 }
                 .tracks-subtitle {
                     color: #aaa;
@@ -452,7 +450,6 @@ export default function Tracks() {
                     font-size: 1.6rem;
                     font-weight: 800;
                     margin: 0;
-                    font-family: var(--font-geist-mono), monospace;
                 }
                 .detail-badge {
                     border: 1px solid;
