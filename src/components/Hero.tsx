@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 const COUNTDOWN_TARGET = new Date(2026, 8, 25, 0, 0, 0).getTime();
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap');
-
   .hero {
     background: rgba(42, 13, 53, 1);
     width: 100%;
@@ -43,7 +41,7 @@ const styles = `
   }
 
   .headline {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--font-title), sans-serif;
     font-size: clamp(100px, 13.5vw, 195px);
     line-height: 0.88;
     margin: 0 0 30px;
@@ -52,9 +50,8 @@ const styles = `
 
   .word-line-1, .word-line-2 { display: block; }
 
-  .word-hack { color: #ffffff; }
-  .word-the { color: rgba(68, 194, 153, 1); }
-  .word-city { color: rgba(224, 64, 208, 1); }
+  .word-concrete { color: rgba(68, 194, 153, 1); }
+  .word-jungle { color: rgba(224, 64, 208, 1); }
 
   .hero-sub {
     font-size: clamp(22px, 2.4vw, 34px);
@@ -72,7 +69,7 @@ const styles = `
   }
 
   .btn-primary {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--font-title), sans-serif;
     font-size: 44px;
     letter-spacing: 2px;
     background: rgba(248, 17, 159, 1);
@@ -108,7 +105,7 @@ const styles = `
   }
 
   .meta-label {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--font-title), sans-serif;
     font-size: 29px;
     letter-spacing: 2.5px;
     color: #4ecfb0;
@@ -169,7 +166,7 @@ const styles = `
   }
 
   .banner-title, .banner-sep, .countdown-num {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--font-title), sans-serif;
     font-size: clamp(32px, 4vw, 50px);
     color: #ffffff;
   }
@@ -242,7 +239,7 @@ export default function Hero() {
         <div className="banner">
           <div className="banner-inner">
             <span className="banner-title">
-              Columbia University DivHacks Hackathon 2026
+              DivHacks 2026
             </span>
             <span className="banner-sep">•</span>
             <div className="countdown">
@@ -268,11 +265,10 @@ export default function Hero() {
           <div className="hero-left">
             <h1 className="headline">
               <span className="word-line-1">
-                <span className="word-hack">Hack </span>
-                <span className="word-the">The</span>
+                <span className="word-concrete">Concrete</span>
               </span>
               <span className="word-line-2">
-                <span className="word-city">City.</span>
+                <span className="word-jungle">Jungle</span>
               </span>
             </h1>
 
@@ -300,10 +296,6 @@ export default function Hero() {
               <div className="meta-item">
                 <span className="meta-label">Where</span>
                 <span className="meta-val">Columbia University</span>
-              </div>
-              <div className="meta-item">
-                <span className="meta-label">Affiliation</span>
-                <span className="meta-val">MLH Official</span>
               </div>
             </div>
           </div>
