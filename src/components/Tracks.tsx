@@ -7,9 +7,9 @@ const tracks = [
         id: "move-smarter",
         name: "Move Smarter",
         badge: "PHYSICAL MOVEMENT ONLY",
-        badgeColor: "#F8119F",
+        badgeColor: "#fb7e03",
         icon: "/images/move-smarter.png",
-        accentColor: "#F8119F",
+        accentColor: "#fb7e03",
         description: "Getting around the city, but better. Anything about how people and things move through NYC",
         tags: ["Transit", "Bikes", "Optimization"],
         focusAreas: ["Transit . Bikes . Scooters . Commute",
@@ -75,12 +75,6 @@ export default function Tracks() {
                     <div className="sign-post"/>
                 </div>
                 <div className="tracks-sign">
-                    <img
-                        src="/images/splash.png"
-                        alt=""
-                        className="splatter-bg"
-                        onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-                    />
                     <h2 className="tracks-title">TRACKS</h2>
                 </div>
             </div>
@@ -211,6 +205,7 @@ export default function Tracks() {
             )}
 
             <style jsx>{`
+                @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
                 .tracks-section {
                     background-color: #000000;
                     padding: 60px 40px 80px;
@@ -260,17 +255,17 @@ export default function Tracks() {
                     border-radius: 6px;
                     margin-top: -2px;
                     box-shadow: 0 4px 15px rgba(247, 200, 42, 0.2);
-                    position: relative; 
+                    position: relative;
+                    animation: boxNeonPulse 2s ease-in-out infinite;
                 }
                 .tracks-title {
-                    font-family: 'Bebas Neue', sans-serif;
-                    font-size: 3.5rem;
+                    font-family: 'Sedgwick Ave Display', cursive;
+                    font-size: 4rem;
                     color: #ffffff;
-                    -webkit-text-stroke: 2px black;
-                    letter-spacing: 4px;
+                    -webkit-text-stroke: 1px black;
+                    letter-spacing: 2px;
                     margin: 0;
-                    text-shadow: 2px 2px 0px rgba(0,0,0,0.8); /* Gives it that sticker/graffiti edge */
-                    position: relative; /* Keeps the text sitting on top of the splatter */
+                    text-shadow: 4px 4px 0px rgba(0,0,0,0.8); 
                     z-index: 1; 
                 }
                 .tracks-subtitle {
@@ -284,22 +279,25 @@ export default function Tracks() {
                     width: 100%;
                     max-width: 1100px;
                     display: flex;
-                    background: #2A0D35; /* #b07db0 */
+                    background: #882cac;
                     border-radius: 8px 8px 0 0;
-                    border: 3px solid #552467; /* #c090c0 */
+                    border: 3px solid #4e1266;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+                    position: relative;
+                    z-index: 1;
                     overflow: hidden;
                     min-height: 160px;
                 }
                 .train-side-panel {
                     width: 80px;
-                    background: #2A0D35; /* #9a6a9a */
+                    background: #4c1861;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     gap: 12px;
                     padding: 16px 8px;
-                    border-right: 3px solid #552467;
+                    border-right: 3px solid #4c1861;
                     flex-shrink: 0;
                 }
                 .train-light {
@@ -311,7 +309,7 @@ export default function Tracks() {
                 }
                 .train-door {
                     background: #7a507a;
-                    border: 2px solid #552467;
+                    border: 2px solid #353137;
                     border-radius: 4px;
                     width: 48px;
                     height: 60px;
@@ -335,7 +333,7 @@ export default function Tracks() {
                 }
                 .train-window {
                     background: #000000;
-                    border: 2px solid #626262;
+                    border: 2px solid #f8119f;
                     border-radius: 6px;
                     display: flex;
                     flex-direction: column;
@@ -372,9 +370,10 @@ export default function Tracks() {
                 }
                 .window-label {
                     color: #fffcfc;
-                    font-size: 0.75rem;
+                    font-family: Sedgwick Ave Display, cursive;
+                    font-size: 1rem;
                     text-align: center;
-                    letter-spacing: 0.5px;
+                    letter-spacing: 2px;
                 }
                 .train-window.active .window-label {
                     color: var(--accent);
@@ -421,7 +420,7 @@ export default function Tracks() {
                 .rail-tie {
                     flex: 1;
                     height: 18px;
-                    background: #5a3a1a;
+                    background: #434241;
                     border-right: 2px solid #0a0a1a;
                 }
                 .track-detail {
@@ -464,22 +463,22 @@ export default function Tracks() {
                     flex-wrap: wrap;
                 }
                 .detail-name {
-                    font-size: 1.6rem;
-                    font-weight: 800;
+                    font-size: 2rem;
                     margin: 0;
-                    font-family: Bebas Neue, sans-serif;
+                    font-family: Sedgwick Ave Display, cursive;
+                    letter-spacing: 2px;
                 }
                 .detail-badge {
                     border: 1px solid;
                     border-radius: 20px;
                     padding: 2px 12px;
-                    font-size: 0.65rem;
+                    font-size: 0.8rem;
                     letter-spacing: 1.5px;
                     font-weight: 600;
                 }
                 .detail-description {
-                    color: #ccc;
-                    font-size: 0.95rem;
+                    color: #f5f5f5;
+                    font-size: 1rem;
                     line-height: 1.6;
                     margin: 0 0 16px;
                 }
@@ -519,14 +518,16 @@ export default function Tracks() {
                 }
                 .focus-label {
                     color: #ffb347;
-                    font-size: 0.7rem;
+                    font-family: San Francisco, sans-serif;
+                    font-size: 0.8rem;
                     font-weight: 700;
                     letter-spacing: 2px;
                     margin: 0 0 12px;
                 }
                 .focus-area {
-                    color: #bbb;
-                    font-size: 0.82rem;
+                    color: #ffffff;
+                    font-family: San Francisco, sans-serif;
+                    font-size: 0.95rem;
                     margin: 0 0 6px;
                     line-height: 1.5;
                 }
@@ -537,6 +538,7 @@ export default function Tracks() {
                     padding: 6px 12px;
                     font-size: 0.72rem;
                     letter-spacing: 1px;
+                    font-family: San Francisco, sans-serif;
                     text-align: center;
                     font-weight: 600;
                 }
@@ -564,6 +566,15 @@ export default function Tracks() {
                     margin-top: 60px;
                     margin-bottom: 20px;
                     letter-spacing: 1px;
+                }
+                
+                @keyframes boxNeonPulse {
+                    0%, 100% {
+                        box-shadow: 0 4px 15px rgba(247, 200, 42, 0.2), 0 0 10px #F7C82A;
+                    }
+                    50% {
+                        box-shadow: 0 4px 15px rgba(247, 200, 42, 0.2), 0 0 30px #F7C82A;
+                    }
                 }
             `}</style>
         </section>
