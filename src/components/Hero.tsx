@@ -1,11 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+const COUNTDOWN_TARGET = new Date(2026, 8, 25, 0, 0, 0).getTime();
+
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap');
 
   .hero {
     background: rgba(42, 13, 53, 1);
-    min-height: 100vh;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -29,10 +32,8 @@ const styles = `
     z-index: 2;
     display: flex;
     align-items: flex-start;
-    padding: 180px 80px 40px 80px;
-    gap: 60px;
-    flex: 1;
-    min-height: calc(100vh - 0px);
+    padding: 68px 80px 36px 80px;
+    gap: 54px;
   }
 
   .hero-left {
@@ -43,14 +44,13 @@ const styles = `
 
   .headline {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(100px, 14vw, 200px);
+    font-size: clamp(100px, 13.5vw, 195px);
     line-height: 0.88;
-    margin: 0 0 32px;
+    margin: 0 0 30px;
     letter-spacing: 3px;
   }
 
-  .word-line-1 { display: block; }
-  .word-line-2 { display: block; }
+  .word-line-1, .word-line-2 { display: block; }
 
   .word-hack { color: #ffffff; }
   .word-the { color: rgba(68, 194, 153, 1); }
@@ -109,13 +109,13 @@ const styles = `
 
   .meta-label {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
+    font-size: 29px;
     letter-spacing: 2.5px;
     color: #4ecfb0;
   }
 
   .meta-val {
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 700;
     color: #ffffff;
     white-space: nowrap;
@@ -123,17 +123,16 @@ const styles = `
 
   .hero-right {
     flex-shrink: 0;
-    width: 42%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .graffiti-box {
+  .hero-image {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
+    object-fit: contain;
   }
 
   @media (max-width: 900px) {
@@ -145,14 +144,124 @@ const styles = `
       width: 100%;
     }
   }
+
+  .banner {
+    position: relative;
+    z-index: 10;
+    margin-top: 48px;
+    width: 100%;
+    min-height: 116px;
+    background: rgba(247, 200, 42, 1);
+    display: flex;
+    align-items: center;
+  }
+
+  .banner-inner {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 16px 24px;
+  }
+
+  .banner-title, .banner-sep, .countdown-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4vw, 50px);
+    color: #ffffff;
+  }
+
+  .banner-title {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .countdown {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 56px;
+  }
+
+  .countdown-num {
+    line-height: 1;
+  }
+
+  .countdown-label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  @media (min-width: 1024px) {
+    .banner-inner {
+      padding: 16px 48px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .banner-inner {
+      justify-content: center;
+      text-align: center;
+    }
+  }
 `;
 
 export default function Hero() {
+  const [timeLeft, setTimeLeft] = useState(0);
+
+  useEffect(() => {
+    const update = () =>
+      setTimeLeft(Math.max(COUNTDOWN_TARGET - Date.now(), 0));
+    update();
+    const id = setInterval(update, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const days = Math.floor(timeLeft / 86400000);
+  const hours = Math.floor((timeLeft % 86400000) / 3600000);
+  const minutes = Math.floor((timeLeft % 3600000) / 60000);
+  const seconds = Math.floor((timeLeft % 60000) / 1000);
+
   return (
     <>
       <style>{styles}</style>
-      
+
       <section className="hero">
+        <div className="banner">
+          <div className="banner-inner">
+            <span className="banner-title">
+              Columbia University DivHacks Hackathon 2026
+            </span>
+            <span className="banner-sep">•</span>
+            <div className="countdown">
+              {[
+                { label: "Days", value: days },
+                { label: "Hours", value: hours },
+                { label: "Min", value: minutes },
+                { label: "Sec", value: seconds },
+              ].map((unit) => (
+                <div className="countdown-item" key={unit.label}>
+                  <span className="countdown-num">
+                    {String(unit.value).padStart(2, "0")}
+                  </span>
+                  <span className="countdown-label">{unit.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         <div className="hero-bg-glow" />
 
         <div className="hero-body">
@@ -200,13 +309,11 @@ export default function Hero() {
           </div>
 
           <div className="hero-right">
-            <div className="graffiti-box">
-              <img
-                src="/images/Divhacks-logo.png"
-                alt="DivHacks Logo"
-                style={{ width: "100%", height: "100%", objectFit: "contain" }}
-              />
-            </div>
+            <img
+              src="/images/Divhacks-logo.png"
+              alt="DivHacks Logo"
+              className="hero-image"
+            />
           </div>
         </div>
       </section>
