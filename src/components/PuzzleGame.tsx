@@ -113,7 +113,7 @@ const PuzzleGame: React.FC = () => {
         }
 
         ctx.fillStyle = 'rgba(0,0,0,0.22)';
-        ctx.font = `900 ${Math.floor(height * 0.72)}px Arial Black, sans-serif`;
+        ctx.font = `900 ${Math.floor(height * 0.72)}px 'Sedgwick Ave Display', sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('CU DIVHACKS', source.width / 2 + 2, source.height / 2 + 3);
