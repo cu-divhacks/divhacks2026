@@ -4,7 +4,7 @@ const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap');
 
   .hero {
-    background: #2d1b69;
+    background: rgba(42, 13, 53, 1);
     min-height: 100vh;
     width: 100%;
     position: relative;
@@ -28,8 +28,8 @@ const styles = `
     position: relative;
     z-index: 2;
     display: flex;
-    align-items: center;
-    padding: 40px 80px;
+    align-items: flex-start;
+    padding: 180px 80px 40px 80px;
     gap: 60px;
     flex: 1;
     min-height: calc(100vh - 0px);
@@ -53,14 +53,14 @@ const styles = `
   .word-line-2 { display: block; }
 
   .word-hack { color: #ffffff; }
-  .word-the { color: #4ecfb0; }
-  .word-city { color: #cc44cc; }
+  .word-the { color: rgba(68, 194, 153, 1); }
+  .word-city { color: rgba(224, 64, 208, 1); }
 
   .hero-sub {
-    font-size: clamp(15px, 1.2vw, 18px);
+    font-size: clamp(22px, 2.4vw, 34px);
     color: rgba(255,255,255,0.55);
-    line-height: 1.65;
-    max-width: 500px;
+    line-height: 1.6;
+    max-width: 100%;
     margin: 0 0 40px;
   }
 
@@ -73,13 +73,13 @@ const styles = `
 
   .btn-primary {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
+    font-size: 44px;
     letter-spacing: 2px;
-    background: #e040d0;
+    background: rgba(248, 17, 159, 1);
     color: #fff;
     border: none;
     border-radius: 8px;
-    padding: 16px 36px;
+    padding: 14px 48px;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
@@ -87,7 +87,7 @@ const styles = `
   }
 
   .btn-primary:hover {
-    background: #f060e8;
+    background: rgba(255, 60, 180, 1);
     transform: translateY(-2px);
   }
 
@@ -97,26 +97,28 @@ const styles = `
 
   .meta-row {
     display: flex;
-    gap: 48px;
+    gap: 36px;
+    width: fit-content;
   }
 
   .meta-item {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
   }
 
   .meta-label {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 12px;
+    font-size: 32px;
     letter-spacing: 2.5px;
     color: #4ecfb0;
   }
 
   .meta-val {
-    font-size: 16px;
+    font-size: 28px;
     font-weight: 700;
     color: #ffffff;
+    white-space: nowrap;
   }
 
   .hero-right {
@@ -128,12 +130,7 @@ const styles = `
   }
 
   .graffiti-box {
-    background: #0d0820;
-    border-radius: 12px;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,22 +151,7 @@ export default function Hero() {
   return (
     <>
       <style>{styles}</style>
-      <div style={{
-          background: "#F7C82A",
-          width: "100%",
-          padding: "22px 0",
-          textAlign: "center" as const,
-      }}>
-          <span style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontWeight: 700,
-              fontSize: "28px",
-              color: "#ffffff",
-              letterSpacing: "3px",
-          }}>
-              Columbia University DivHacks Hackathon 2026
-          </span>
-      </div>
+      
       <section className="hero">
         <div className="hero-bg-glow" />
 
@@ -186,8 +168,8 @@ export default function Hero() {
             </h1>
 
             <p className="hero-sub">
-              A hackathon for building smarter solutions for the communities
-              we live in. Food. Housing. Transportation.
+              A hackathon for building smarter solutions for the communities we live in.
+              Food. Housing. Transportation.<br/>
             </p>
 
             <div className="hero-ctas">
@@ -219,7 +201,11 @@ export default function Hero() {
 
           <div className="hero-right">
             <div className="graffiti-box">
-              {/* Drop your image asset here when ready */}
+              <img
+                src="/images/Divhacks-logo.png"
+                alt="DivHacks Logo"
+                style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              />
             </div>
           </div>
         </div>
