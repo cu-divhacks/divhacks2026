@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Sedgwick_Ave_Display } from "next/font/google";
+import { Nunito, Sedgwick_Ave_Display } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${sedgwick.variable} h-full antialiased`}
+      className={`${nunito.variable} ${sedgwick.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

@@ -12,7 +12,6 @@ const styles = `
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    font-family: 'Space Grotesk', sans-serif;
   }
 
   .hero-bg-glow {

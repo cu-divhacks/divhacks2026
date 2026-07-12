@@ -13,7 +13,7 @@
 
 @theme inline {
   --font-title: var(--font-sedgwick);
-  --font-copy: var(--font-geist-sans);
+  --font-copy: var(--font-nunito);
 }
 
 html {
