@@ -289,7 +289,7 @@ export default function Hero() {
                                 rel="noopener noreferrer"
                                 className="btn-primary"
                             >
-                                Pre-Register Now
+                                Apply Now
                             </a>
                         </div>
 
