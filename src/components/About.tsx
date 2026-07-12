@@ -5,7 +5,6 @@ export default function About() {
                 id="about"
                 className="relative min-h-100 text-white py-16 px-6 md:px-12 overflow-hidden shadow-2xl"
             >
-                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#2e2e2e_1px,transparent_1px)] bg-size-[16px_16px] pointer-events-none"></div>
                 <div
                     className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
                     style={{
@@ -15,7 +14,7 @@ export default function About() {
                 ></div>
                 <div
                     className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-                    style={{ backgroundColor: "rgba(33, 143, 118, 0.15)" }}
+                    style={{ backgroundColor: "color-mix(in srgb, var(--color-darkteal) 15%, transparent)" }}
                 ></div>
 
                 <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-48 items-center max-w-6xl mx-auto">
@@ -24,8 +23,8 @@ export default function About() {
                             className="text-7xl md:text-8xl select-none transform -rotate-3 text-center md:text-left text-normalorange"
                             style={{
                                 textShadow:
-                                    "3px 3px 0px #f8119f, 6px 6px 0px var(--color-normalpurple), 9px 9px 0px black",
-                                WebkitTextStroke: "2px black",
+                                    "3px 3px 0px var(--color-lightpink), 6px 6px 0px var(--color-normalpurple), 9px 9px 0px var(--color-black)",
+                                WebkitTextStroke: "2px var(--color-black)",
                             }}
                         >
                             About DivHacks
@@ -36,12 +35,12 @@ export default function About() {
                         <div
                             className="absolute inset-0 rounded-xl backdrop-blur-md -rotate-2 pointer-events-none animate-pulse"
                             style={{
-                                borderColor: "#cc007e",
+                                borderColor: "var(--color-darkpink)",
                                 borderWidth: "2px",
-                                boxShadow: "0 0 12px #f8119f",
+                                boxShadow: "0 0 12px var(--color-lightpink)",
                             }}
                         ></div>
-                        <div className="relative p-6 md:p-8 text-base md:text-lg leading-relaxed text-slate-200 font-medium space-y-4">
+                        <div className="relative p-6 md:p-8 text-base md:text-lg leading-relaxed text-white font-medium space-y-4">
                             <p>
                                 <span
                                     style={{
@@ -55,7 +54,7 @@ export default function About() {
                                 premier student-led annual diversity hackathon
                                 run by{" "}
                                 <span
-                                    style={{ color: "#f8119f" }}
+                                    style={{ color: "var(--color-lightpink)" }}
                                     className="font-semibold"
                                 >
                                     Women in Computer Science

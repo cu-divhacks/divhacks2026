@@ -33,7 +33,7 @@ export default function Header() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group relative isolate ml-1 inline-flex items-center justify-center rounded-full border-2 border-white px-6 py-3 text-base font-black uppercase tracking-[0.16em] text-white transition-transform hover:-translate-y-0.5 hover:scale-[1.02]"
-                    style={{ background: "rgba(248, 17, 159, 1)" }}
+                    style={{ background: "var(--color-lightpink)" }}
                 >
                     Apply
                 </a>

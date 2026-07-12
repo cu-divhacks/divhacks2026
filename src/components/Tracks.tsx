@@ -7,9 +7,9 @@ const tracks = [
         id: "move-smarter",
         name: "Move Smarter",
         badge: "PHYSICAL MOVEMENT ONLY",
-        badgeColor: "#4fc3f7",
+        badgeColor: "var(--color-blue)",
         icon: "/images/move-smarter.png",
-        accentColor: "#4fc3f7",
+        accentColor: "var(--color-blue)",
         description:
             "Getting around the city, but better. Anything about how people and things move through NYC",
         tags: ["Transit", "Bikes", "Optimization"],
@@ -37,9 +37,9 @@ const tracks = [
         id: "know-your-city",
         name: "Know Your City",
         badge: "ANTI TOURIST TRACK",
-        badgeColor: "#81c784",
+        badgeColor: "var(--color-green)",
         icon: "/images/know-your-city.png",
-        accentColor: "#81c784",
+        accentColor: "var(--color-green)",
         description:
             "NYC, block by block. Helping people feel more connected to their neighborhood and local culture.",
         tags: ["Hidden Gems", "Local Events", "Neighborhood"],
@@ -52,9 +52,9 @@ const tracks = [
         id: "hack-the-city",
         name: "Hack the City",
         badge: "DATA & APPROACHABILITY",
-        badgeColor: "#ef5350",
+        badgeColor: "var(--color-red)",
         icon: "/images/hack-the-city.png",
-        accentColor: "#ef5350",
+        accentColor: "var(--color-red)",
         description:
             "Data that makes urban systems approachable. Makes messy urban data more visual and actionable.",
         tags: ["Air Quality", "Housing Equity", "Rent Trends"],
@@ -216,7 +216,7 @@ export default function Tracks() {
 
             <style jsx>{`
                 .tracks-section {
-                    background-color: #0a0a1a;
+                    background-color: var(--color-black);
                     padding: 60px 20px 80px;
                     display: flex;
                     flex-direction: column;
@@ -250,13 +250,13 @@ export default function Tracks() {
                 .tracks-title {
                     font-size: 3rem;
                     font-weight: 900;
-                    color: white;
+                    color: var(--color-white);
                     letter-spacing: 6px;
                     margin: 0;
-                    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+                    text-shadow: 2px 2px 0 color-mix(in srgb, var(--color-black) 40%, transparent);
                 }
                 .tracks-subtitle {
-                    color: #aaa;
+                    color: var(--color-white);
                     font-size: 1.1rem;
                     margin: 0 0 32px;
                     letter-spacing: 1px;
@@ -287,9 +287,9 @@ export default function Tracks() {
                 .train-light {
                     width: 20px;
                     height: 20px;
-                    background: #ffd700;
+                    background: var(--color-normalyellow);
                     border-radius: 50%;
-                    box-shadow: 0 0 8px #ffd700;
+                    box-shadow: 0 0 8px var(--color-normalyellow);
                 }
                 .train-door {
                     background: var(--color-normalpurple);
@@ -304,7 +304,7 @@ export default function Tracks() {
                     padding-bottom: 4px;
                 }
                 .train-label {
-                    color: #ffffff;
+                    color: var(--color-white);
                     font-size: 1rem;
                     letter-spacing: 1px;
                 }
@@ -316,8 +316,8 @@ export default function Tracks() {
                     flex: 1;
                 }
                 .train-window {
-                    background: #000000;
-                    border: 2px solid #626262;
+                    background: var(--color-black);
+                    border: 2px solid var(--color-black);
                     border-radius: 6px;
                     display: flex;
                     flex-direction: column;
@@ -340,7 +340,7 @@ export default function Tracks() {
                 .window-icon-circle {
                     width: 70px;
                     height: 70px;
-                    background: #fff;
+                    background: var(--color-white);
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
@@ -354,7 +354,7 @@ export default function Tracks() {
                     border-radius: 50%;
                 }
                 .window-label {
-                    color: #fffcfc;
+                    color: var(--color-white);
                     font-size: 0.75rem;
                     text-align: center;
                     letter-spacing: 0.5px;
@@ -381,9 +381,9 @@ export default function Tracks() {
                 .wheel {
                     width: 28px;
                     height: 28px;
-                    background: #555;
+                    background: var(--color-black);
                     border-radius: 50%;
-                    border: 3px solid #888;
+                    border: 3px solid var(--color-white);
                 }
                 .track-rails {
                     width: 100%;
@@ -405,7 +405,7 @@ export default function Tracks() {
                     flex: 1;
                     height: 18px;
                     background: #5a3a1a;
-                    border-right: 2px solid #0a0a1a;
+                    border-right: 2px solid var(--color-black);
                 }
                 .track-detail {
                     width: 100%;
@@ -423,13 +423,13 @@ export default function Tracks() {
                 .detail-icon-box {
                     width: 100px;
                     height: 100px;
-                    border: 2px solid #fff;
+                    border: 2px solid var(--color-white);
                     border-radius: 10px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     flex-shrink: 0;
-                    background: #cecece;
+                    background: var(--color-white);
                 }
                 .detail-icon {
                     width: 70px;
@@ -460,7 +460,7 @@ export default function Tracks() {
                     font-weight: 600;
                 }
                 .detail-description {
-                    color: #ccc;
+                    color: var(--color-white);
                     font-size: 0.95rem;
                     line-height: 1.6;
                     margin: 0 0 16px;
@@ -471,8 +471,8 @@ export default function Tracks() {
                     flex-wrap: wrap;
                 }
                 .tag {
-                    border: 1px solid #555;
-                    color: #ccc;
+                    border: 1px solid var(--color-black);
+                    color: var(--color-white);
                     border-radius: 20px;
                     padding: 4px 14px;
                     font-size: 0.8rem;
@@ -480,8 +480,8 @@ export default function Tracks() {
 
                 /* Focus areas */
                 .detail-focus {
-                    background: #111;
-                    border: 1px solid #333;
+                    background: var(--color-black);
+                    border: 1px solid var(--color-black);
                     border-radius: 10px;
                     padding: 20px 24px;
                     min-width: 280px;
@@ -495,7 +495,7 @@ export default function Tracks() {
                     margin: 0 0 12px;
                 }
                 .focus-area {
-                    color: #bbb;
+                    color: var(--color-white);
                     font-size: 0.82rem;
                     margin: 0 0 6px;
                     line-height: 1.5;

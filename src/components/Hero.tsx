@@ -20,7 +20,7 @@ const styles = `
     pointer-events: none;
     z-index: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 70% 20%, rgba(123,47,190,0.45) 0%, transparent 100%),
+      radial-gradient(ellipse 60% 50% at 70% 20%, color-mix(in srgb, var(--color-normalpurple) 45%, transparent) 0%, transparent 100%),
       radial-gradient(ellipse 40% 35% at 85% 75%, rgba(224,64,208,0.18) 0%, transparent 100%);
   }
 
@@ -49,12 +49,12 @@ const styles = `
 
   .word-line-1, .word-line-2 { display: block; }
 
-  .word-concrete { color: rgba(68, 194, 153, 1); }
-  .word-jungle { color: rgba(224, 64, 208, 1); }
+  .word-concrete { color: var(--color-lightteal); }
+  .word-jungle { color: var(--color-normalpurple); }
 
   .hero-sub {
     font-size: clamp(22px, 2.4vw, 34px);
-    color: rgba(255,255,255,0.55);
+    color: color-mix(in srgb, var(--color-white) 55%, transparent);
     line-height: 1.6;
     max-width: 100%;
     margin: 0 0 40px;
@@ -71,8 +71,8 @@ const styles = `
     font-family: var(--font-title), sans-serif;
     font-size: 44px;
     letter-spacing: 2px;
-    background: rgba(248, 17, 159, 1);
-    color: #fff;
+    background: var(--color-lightpink);
+    color: var(--color-white);
     border: none;
     border-radius: 8px;
     padding: 14px 48px;
@@ -83,7 +83,7 @@ const styles = `
   }
 
   .btn-primary:hover {
-    background: rgba(255, 60, 180, 1);
+    background: var(--color-darkpink);
     transform: translateY(-2px);
   }
 
@@ -107,13 +107,13 @@ const styles = `
     font-family: var(--font-title), sans-serif;
     font-size: 29px;
     letter-spacing: 2.5px;
-    color: #4ecfb0;
+    color: var(--color-lightteal);
   }
 
   .meta-val {
     font-size: 25px;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--color-white);
     white-space: nowrap;
   }
 
@@ -167,7 +167,7 @@ const styles = `
   .banner-title, .banner-sep, .countdown-num {
     font-family: var(--font-title), sans-serif;
     font-size: clamp(32px, 4vw, 50px);
-    color: #ffffff;
+    color: var(--color-white);
   }
 
   .banner-title {
@@ -197,7 +197,7 @@ const styles = `
     font-weight: 800;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: var(--color-white);
   }
 
   @media (min-width: 1024px) {

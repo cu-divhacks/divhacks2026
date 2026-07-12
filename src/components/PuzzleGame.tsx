@@ -34,6 +34,18 @@ function shuffleArray<T>(arr: T[]): T[] {
     return [...arr].sort(() => Math.random() - 0.5);
 }
 
+function cssVar(name: string): string {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function cssVarRgba(name: string, alpha: number): string {
+    const hex = cssVar(name).replace('#', '');
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
 const PuzzleGame: React.FC = () => {
     const boardRef = useRef<HTMLDivElement | null>(null);
     const [boardSize, setBoardSize] = useState({ width: 640, height: 400 });
@@ -99,29 +111,29 @@ const PuzzleGame: React.FC = () => {
         if (!ctx) return [];
 
         const grad = ctx.createLinearGradient(0, 0, source.width, source.height);
-        grad.addColorStop(0, '#44c299');
-        grad.addColorStop(0.55, '#f8119f');
-        grad.addColorStop(1, '#fa97c2');
+        grad.addColorStop(0, cssVar('--color-lightteal'));
+        grad.addColorStop(0.55, cssVar('--color-darkpink'));
+        grad.addColorStop(1, cssVar('--color-lightpink'));
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, source.width, source.height);
 
         for (let i = 0; i < 18; i++) {
-            ctx.fillStyle = i % 2 === 0 ? 'rgba(255,255,255,0.09)' : 'rgba(255,255,255,0.05)';
+            ctx.fillStyle = i % 2 === 0 ? cssVarRgba('--color-white', 0.09) : cssVarRgba('--color-white', 0.05);
             ctx.beginPath();
             ctx.arc(Math.random() * source.width, Math.random() * source.height, 8 + Math.random() * 28, 0, Math.PI * 2);
             ctx.fill();
         }
 
-        ctx.fillStyle = 'rgba(0,0,0,0.22)';
+        ctx.fillStyle = cssVarRgba('--color-black', 0.22);
         ctx.font = `900 ${Math.floor(height * 0.72)}px 'Sedgwick Ave Display', sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('CU DIVHACKS', source.width / 2 + 2, source.height / 2 + 3);
 
-        ctx.fillStyle = '#ffffff';
+        ctx.fillStyle = cssVar('--color-white');
         ctx.fillText('CU DIVHACKS', source.width / 2, source.height / 2);
 
-        ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+        ctx.strokeStyle = cssVarRgba('--color-white', 0.55);
         ctx.lineWidth = 2;
         ctx.strokeRect(3, 3, source.width - 6, source.height - 6);
 
@@ -202,7 +214,7 @@ const PuzzleGame: React.FC = () => {
         if (!ctx) return;
 
         ctx.clearRect(0, 0, boardSize.width, boardSize.height);
-        ctx.strokeStyle = 'rgba(0,255,255,0.28)';
+        ctx.strokeStyle = cssVarRgba('--color-lightteal', 0.28);
         ctx.lineWidth = 1;
         for (const slot of slots) {
             ctx.strokeRect(slot.x, slot.y, tileW, tileH);
