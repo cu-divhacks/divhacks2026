@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./FAQ.module.css";
+import Splash from "./Splash";
 
 interface FAQItem {
     question: string;
@@ -97,6 +98,21 @@ const FAQ: React.FC = () => {
 
     return (
         <section id="faq" className={styles.container}>
+            <Splash
+                className="w-40 h-32 top-6 left-10"
+                color="var(--color-darkpink)"
+                rotate={-27}
+            />
+            <Splash
+                className="w-76 h-56 bottom-6 right-14"
+                color="var(--color-green)"
+                rotate={16}
+            />
+            <Splash
+                className="w-52 h-40 top-1/3 right-1/4"
+                color="var(--color-blue)"
+                rotate={-38}
+            />
             <div className={styles.faqHeader}>
                 <h1>FAQ</h1>
             </div>

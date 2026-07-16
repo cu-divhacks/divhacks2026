@@ -12,6 +12,7 @@ const styles = `
     flex: 1;
     position: relative;
     overflow: hidden;
+    z-index: 0;
     display: flex;
     flex-direction: column;
   }
@@ -287,7 +288,9 @@ export default function Hero() {
                             </h1>
 
                             <p className="hero-sub">
-                                Hack the future of New York City!
+                                A hackathon for building smarter solutions for
+                                the communities we live in. Food. Housing.
+                                Transportation.
                                 <br />
                             </p>
 

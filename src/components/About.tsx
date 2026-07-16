@@ -1,10 +1,27 @@
+import Splash from "./Splash";
+
 export default function About() {
     return (
         <>
             <section
                 id="about"
-                className="relative min-h-100 text-white py-16 px-6 md:px-12 overflow-hidden shadow-2xl"
+                className="relative z-0 min-h-100 text-white py-16 px-6 md:px-12 overflow-hidden shadow-2xl"
             >
+                <Splash
+                    className="w-2xs h-52 top-6 left-14"
+                    color="var(--color-normalyellow)"
+                    rotate={-19}
+                />
+                <Splash
+                    className="w-36 h-44 bottom-10 right-24"
+                    color="var(--color-lightpink)"
+                    rotate={27}
+                />
+                <Splash
+                    className="w-56 h-72 top-1/2 -right-6"
+                    color="var(--color-lightteal)"
+                    rotate={-8}
+                />
                 <div
                     className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
                     style={{

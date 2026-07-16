@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import styles from './PuzzleGame.module.css';
+import Splash from './Splash';
 
 const COLS = 4;
 const ROWS = 3;
@@ -321,6 +322,16 @@ const PuzzleGame: React.FC = () => {
 
     return (
         <section className={styles.wrapper}>
+            <Splash
+                className="w-48 h-36 top-12 left-6"
+                color="var(--color-normalyellow)"
+                rotate={-22}
+            />
+            <Splash
+                className="w-104 h-72 bottom-6 right-16"
+                color="var(--color-lightpink)"
+                rotate={19}
+            />
             <main className={styles.app}>
                 <section className={styles.header}>
                     <div>

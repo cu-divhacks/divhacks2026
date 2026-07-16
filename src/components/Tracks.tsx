@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Splash from "./Splash";
 
 const tracks = [
     {
@@ -70,6 +71,17 @@ export default function Tracks() {
 
     return (
         <section id="tracks" className="tracks-section">
+            <Splash
+                className="w-md h-xs top-2 right-10"
+                color="var(--color-blue)"
+                rotate={-21}
+            />
+            <Splash
+                className="w-40 h-32 top-1/2 left-6"
+                color="var(--color-darkteal)"
+                rotate={33}
+            />
+
             {/* Title sign */}
             <div className="tracks-sign-wrapper">
                 <div className="tracks-sign-posts">
@@ -223,6 +235,7 @@ export default function Tracks() {
                     align-items: center;
                     position: relative;
                     overflow: hidden;
+                    z-index: 0;
                 }
 
                 .tracks-sign-wrapper {
