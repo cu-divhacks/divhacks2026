@@ -27,8 +27,9 @@ Single-page app with one route (`src/app/page.tsx`), composed from section compo
 
 - `src/app/layout.tsx` — root layout, loads Nunito and Sedgwick Ave Display via `next/font/google`, sets `min-h-full flex flex-col` on `<body>`
 - `src/app/globals.css` — imports Tailwind, defines the color palette and font variables (see Design Tokens below)
-- `src/app/page.tsx` — assembles the page from `src/components/`: `Header`, `Hero`, `About`, `Tracks`, `Sponsors`, `FAQ`, `PuzzleGame`, `Team`, `Footer`
+- `src/app/page.tsx` — assembles the page from `src/components/`: `Hero`, `About`, `Tracks`, `Sponsors`, `FAQ`, `PuzzleGame`, `Team`, `Footer`
 - `src/components/` — one file per site section; some have a co-located `*.module.css` (e.g. `FAQ.module.css`, `PuzzleGame.module.css`) for styles that don't fit Tailwind utilities
+  - `Header` is not composed in `page.tsx` — `Hero` renders it directly so the nav and hero can share one `flex min-h-screen flex-col` wrapper, making `.hero` (`flex: 1`) fill exactly the viewport height minus the nav's actual height
 - `public/` — static assets served at `/`; MLH badge SVGs live here
 
 ## Design Tokens (fonts & colors)
