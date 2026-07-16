@@ -73,7 +73,7 @@ const styles = `
     font-family: var(--font-title), sans-serif;
     font-size: 44px;
     letter-spacing: 2px;
-    background: var(--color-lightpink);
+    background: var(--color-darkpink);
     color: var(--color-white);
     border: none;
     border-radius: 8px;
@@ -85,7 +85,7 @@ const styles = `
   }
 
   .btn-primary:hover {
-    background: var(--color-darkpink);
+    background: var(--color-lightpink);
     transform: translateY(-2px);
   }
 
@@ -287,9 +287,7 @@ export default function Hero() {
                             </h1>
 
                             <p className="hero-sub">
-                                A hackathon for building smarter solutions for
-                                the communities we live in. Food. Housing.
-                                Transportation.
+                                Hack the future of New York City!
                                 <br />
                             </p>
 
