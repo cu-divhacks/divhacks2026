@@ -1,14 +1,55 @@
 "use client";
 
-const teamMembers = Array.from({ length: 10 }).map((_, i) => ({
-    id: i,
-    name: "Name Placeholder",
-    role: "DivHacks Lead",
-    major: "Computer Engineering",
-    school: "Columbia Engineering",
-    year: "Sophomore",
-    image: null, // To Replace with actual image URLs
-}));
+const teamMembers = [
+    {
+        id: 1,
+        name: "Tiffany Zheng",
+        role: "Executive Lead",
+        image: "/images/Team/Tiffany.png",
+    },
+    {
+        id: 2,
+        name: "Sita Vemuri",
+        role: "Tech Development Lead",
+        image: "/images/Team/Sita.JPG", 
+    },
+    {
+        id: 3,
+        name: "Ankita Saha",
+        role: "Hacker Experience Lead",
+        image: "/images/Team/Ankita.jpg",
+    },
+    {
+        id: 4,
+        name: "Aayusha Pokharel",
+        role: "Sponsorship Co-Lead",
+        image: "/images/Team/Aayusha.jpg", 
+    },
+    {
+        id: 5,
+        name: "Khine Su Thar",
+        role: "Tech Development",
+        image: "/images/Team/Khine.png", 
+    },
+    {
+        id: 6,
+        name: "Xinxi Zhong",
+        role: "Hacker Experience",
+        image: "/images/Team/Xinxi.jpg", 
+    },
+    {
+        id: 7,
+        name: "Eliana Singer",
+        role: "Sponsorship",
+        image: "/images/Team/Eliana.png",
+    },
+    {
+        id: 8,
+        name: "Sydney Kaufman",
+        role: "Publicity",
+        image: "/images/Team/Sydney.jpg",
+    }
+];
 
 export default function Team() {
     return (
@@ -48,9 +89,6 @@ export default function Team() {
                                     <div className="info-box">
                                         <h3 className="info-name">{member.name}</h3>
                                         <p className="info-text">{member.role}</p>
-                                        <p className="info-text">{member.major}</p>
-                                        <p className="info-text">{member.school}</p>
-                                        <p className="info-text">{member.year}</p>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +169,7 @@ export default function Team() {
                 }
 
                 .team-card {
-                    width: 240px; 
+                    width: 200px; 
                     flex-shrink: 0; 
                     aspect-ratio: 2.5 / 3; 
                     position: relative;
@@ -154,7 +192,6 @@ export default function Team() {
                     background-color: #44C299;
                 }
 
-                /* CSS Magic for the Grid Lines */
                 .card-grid-overlay {
                     position: absolute;
                     top: 0; left: 0; right: 0; bottom: 0;
@@ -199,15 +236,16 @@ export default function Team() {
 
                 /* Info Box */
                 .info-box {
-                    background-color: #FCEFB4; 
+                    background-color: #FFC83D; 
                     border-radius: 20px;
                     padding: 16px 8px;
                     text-align: center;
                     color: #000;
                 }
                 .info-name {
-                    font-weight: 900;
+                    font-weight: 700;
                     font-size: 0.85rem;
+                    letter-spacing: 1px;
                     margin: 0 0 4px 0;
                 }
                 .info-text {

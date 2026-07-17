@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Header from "./Header";
 
 const COUNTDOWN_TARGET = new Date(2026, 8, 25, 0, 0, 0).getTime();
 
@@ -8,11 +9,12 @@ const styles = `
   .hero {
     background: rgba(42, 13, 53, 1);
     width: 100%;
+    flex: 1;
     position: relative;
     overflow: hidden;
+    z-index: 0;
     display: flex;
     flex-direction: column;
-    font-family: 'Space Grotesk', sans-serif;
   }
 
   .hero-bg-glow {
@@ -21,16 +23,17 @@ const styles = `
     pointer-events: none;
     z-index: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 70% 20%, rgba(123,47,190,0.45) 0%, transparent 100%),
+      radial-gradient(ellipse 60% 50% at 70% 20%, color-mix(in srgb, var(--color-normalpurple) 45%, transparent) 0%, transparent 100%),
       radial-gradient(ellipse 40% 35% at 85% 75%, rgba(224,64,208,0.18) 0%, transparent 100%);
   }
 
   .hero-body {
     position: relative;
     z-index: 2;
+    flex: 1;
     display: flex;
-    align-items: flex-start;
-    padding: 68px 80px 36px 80px;
+    align-items: center;
+    padding: 48px 80px 32px 80px;
     gap: 54px;
   }
 
@@ -42,38 +45,37 @@ const styles = `
 
   .headline {
     font-family: var(--font-title), sans-serif;
-    font-size: clamp(100px, 13.5vw, 195px);
+    font-size: clamp(56px, 7.2vw, 110px);
     line-height: 0.88;
-    margin: 0 0 30px;
+    margin: 0 0 20px;
     letter-spacing: 3px;
+    white-space: nowrap;
   }
 
-  .word-line-1, .word-line-2 { display: block; }
-
-  .word-concrete { color: rgba(68, 194, 153, 1); }
-  .word-jungle { color: rgba(224, 64, 208, 1); }
+  .word-concrete { color: var(--color-lightteal); }
+  .word-jungle { color: var(--color-normalpurple); }
 
   .hero-sub {
-    font-size: clamp(22px, 2.4vw, 34px);
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
+    font-size: clamp(20px, 2vw, 28px);
+    color: color-mix(in srgb, var(--color-white) 55%, transparent);
+    line-height: 1.5;
     max-width: 100%;
-    margin: 0 0 40px;
+    margin: 0 0 24px;
   }
 
   .hero-ctas {
     display: flex;
     gap: 14px;
     align-items: center;
-    margin-bottom: 56px;
+    margin-bottom: 32px;
   }
 
   .btn-primary {
     font-family: var(--font-title), sans-serif;
     font-size: 44px;
     letter-spacing: 2px;
-    background: rgba(248, 17, 159, 1);
-    color: #fff;
+    background: var(--color-darkpink);
+    color: var(--color-white);
     border: none;
     border-radius: 8px;
     padding: 14px 48px;
@@ -84,7 +86,7 @@ const styles = `
   }
 
   .btn-primary:hover {
-    background: rgba(255, 60, 180, 1);
+    background: var(--color-lightpink);
     transform: translateY(-2px);
   }
 
@@ -108,13 +110,13 @@ const styles = `
     font-family: var(--font-title), sans-serif;
     font-size: 29px;
     letter-spacing: 2.5px;
-    color: #4ecfb0;
+    color: var(--color-lightteal);
   }
 
   .meta-val {
     font-size: 25px;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--color-white);
     white-space: nowrap;
   }
 
@@ -135,7 +137,11 @@ const styles = `
   @media (max-width: 900px) {
     .hero-body {
       flex-direction: column;
+      align-items: flex-start;
       padding: 40px 32px 60px;
+    }
+    .headline {
+      white-space: normal;
     }
     .hero-right {
       width: 100%;
@@ -168,7 +174,7 @@ const styles = `
   .banner-title, .banner-sep, .countdown-num {
     font-family: var(--font-title), sans-serif;
     font-size: clamp(32px, 4vw, 50px);
-    color: #ffffff;
+    color: var(--color-white);
   }
 
   .banner-title {
@@ -198,7 +204,7 @@ const styles = `
     font-weight: 800;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: var(--color-white);
   }
 
   @media (min-width: 1024px) {
@@ -235,89 +241,96 @@ export default function Hero() {
         <>
             <style>{styles}</style>
 
-            <section className="hero">
-                <div className="banner">
-                    <div className="banner-inner">
-                        <span className="banner-title">DivHacks 2026</span>
-                        <span className="banner-sep">•</span>
-                        <div className="countdown">
-                            {[
-                                { label: "Days", value: days },
-                                { label: "Hours", value: hours },
-                                { label: "Min", value: minutes },
-                                { label: "Sec", value: seconds },
-                            ].map((unit) => (
-                                <div
-                                    className="countdown-item"
-                                    key={unit.label}
+            <div className="flex min-h-screen flex-col">
+                <Header />
+
+                <section className="hero">
+                    <div className="banner">
+                        <div className="banner-inner">
+                            <span className="banner-title">
+                                DivHacks 2026
+                            </span>
+                            <span className="banner-sep">•</span>
+                            <div className="countdown">
+                                {[
+                                    { label: "Days", value: days },
+                                    { label: "Hours", value: hours },
+                                    { label: "Min", value: minutes },
+                                    { label: "Sec", value: seconds },
+                                ].map((unit) => (
+                                    <div
+                                        className="countdown-item"
+                                        key={unit.label}
+                                    >
+                                        <span className="countdown-num">
+                                            {String(unit.value).padStart(
+                                                2,
+                                                "0",
+                                            )}
+                                        </span>
+                                        <span className="countdown-label">
+                                            {unit.label}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="hero-bg-glow" />
+
+                    <div className="hero-body">
+                        <div className="hero-left">
+                            <h1 className="headline">
+                                <span className="word-concrete">
+                                    Concrete
+                                </span>{" "}
+                                <span className="word-jungle">Jungle</span>
+                            </h1>
+
+                            <p className="hero-sub">
+                                A hackathon for building smarter solutions for
+                                the communities we live in. Food. Housing.
+                                Transportation.
+                                <br />
+                            </p>
+
+                            <div className="hero-ctas">
+                                <a
+                                    href="https://forms.gle/5Cyi44u6HcC5iiZF8"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-primary"
                                 >
-                                    <span className="countdown-num">
-                                        {String(unit.value).padStart(2, "0")}
-                                    </span>
-                                    <span className="countdown-label">
-                                        {unit.label}
+                                    Apply Now
+                                </a>
+                            </div>
+
+                            <div className="meta-row">
+                                <div className="meta-item">
+                                    <span className="meta-label">When</span>
+                                    <span className="meta-val">
+                                        September 26–27, 2026
                                     </span>
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <div className="hero-bg-glow" />
-
-                <div className="hero-body">
-                    <div className="hero-left">
-                        <h1 className="headline">
-                            <span className="word-line-1">
-                                <span className="word-concrete">Concrete</span>
-                            </span>
-                            <span className="word-line-2">
-                                <span className="word-jungle">Jungle</span>
-                            </span>
-                        </h1>
-
-                        <p className="hero-sub">
-                            A hackathon for building smarter solutions for the
-                            communities we live in. Food. Housing.
-                            Transportation.
-                            <br />
-                        </p>
-
-                        <div className="hero-ctas">
-                            <a
-                                href="https://forms.gle/5Cyi44u6HcC5iiZF8"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-primary"
-                            >
-                                Pre-Register Now
-                            </a>
-                        </div>
-
-                        <div className="meta-row">
-                            <div className="meta-item">
-                                <span className="meta-label">When</span>
-                                <span className="meta-val">
-                                    September 26–27, 2026
-                                </span>
-                            </div>
-                            <div className="meta-item">
-                                <span className="meta-label">Where</span>
-                                <span className="meta-val">
-                                    Columbia University
-                                </span>
+                                <div className="meta-item">
+                                    <span className="meta-label">Where</span>
+                                    <span className="meta-val">
+                                        Columbia University
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="hero-right">
-                        <img
-                            src="/images/Divhacks-logo.png"
-                            alt="DivHacks Logo"
-                            className="hero-image"
-                        />
+                        <div className="hero-right">
+                            <img
+                                src="/images/Divhacks-logo.png"
+                                alt="DivHacks Logo"
+                                className="hero-image"
+                            />
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </>
     );
 }

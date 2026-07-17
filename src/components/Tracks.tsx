@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Splash from "./Splash";
 
 const tracks = [
     {
@@ -51,9 +52,9 @@ const tracks = [
         id: "hack-the-city",
         name: "Hack the City",
         badge: "DATA & APPROACHABILITY",
-        badgeColor: "#ef5350",
+        badgeColor: "var(--color-red)",
         icon: "/images/hack-the-city.png",
-        accentColor: "#ef5350",
+        accentColor: "var(--color-red)",
         description:
             "Data that makes urban systems approachable. Makes messy urban data more visual and actionable.",
         tags: ["Air Quality", "Housing Equity", "Rent Trends"],
@@ -69,6 +70,17 @@ export default function Tracks() {
     
     return (
         <section id="tracks" className="tracks-section">
+            <Splash
+                className="w-md h-xs top-2 right-10"
+                color="var(--color-blue)"
+                rotate={-21}
+            />
+            <Splash
+                className="w-40 h-32 top-1/2 left-6"
+                color="var(--color-darkteal)"
+                rotate={33}
+            />
+
             {/* Title sign */}
             <div className="tracks-sign-wrapper">
                 <div className="tracks-sign">
@@ -199,13 +211,14 @@ export default function Tracks() {
             <style jsx>{`
                 @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
                 .tracks-section {
-                    background-color: #000000;
+                    background-color: rgba(42, 13, 53, 1);
                     padding: 60px 40px 80px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     position: relative;
                     overflow: hidden;
+                    z-index: 0;
                 }
 
                 .tracks-sign-wrapper {
@@ -248,7 +261,7 @@ export default function Tracks() {
                     z-index: 1;
                 }
                 .tracks-subtitle {
-                    color: #aaa;
+                    color: var(--color-white);
                     font-size: 1.1rem;
                     margin: 0 0 32px;
                     letter-spacing: 1px;
@@ -258,7 +271,7 @@ export default function Tracks() {
                     width: 100%;
                     max-width: 1100px;
                     display: flex;
-                    background: #b07db0;
+                    background: rgba(42, 13, 53, 1);
                     border-radius: 8px 8px 0 0;
                     border: 3px solid #c090c0;
                     overflow: hidden;
@@ -279,9 +292,9 @@ export default function Tracks() {
                 .train-light {
                     width: 20px;
                     height: 20px;
-                    background: #ffd700;
+                    background: var(--color-normalyellow);
                     border-radius: 50%;
-                    box-shadow: 0 0 8px #ffd700;
+                    box-shadow: 0 0 8px var(--color-normalyellow);
                 }
                 .train-door {
                     background: #7a507a;
@@ -296,7 +309,7 @@ export default function Tracks() {
                     padding-bottom: 4px;
                 }
                 .train-label {
-                    color: #ffffff;
+                    color: var(--color-white);
                     font-size: 1rem;
                     letter-spacing: 1px;
                 }
@@ -333,7 +346,7 @@ export default function Tracks() {
                 .window-icon-circle {
                     width: 70px;
                     height: 70px;
-                    background: #fff;
+                    background: var(--color-white);
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
@@ -375,9 +388,9 @@ export default function Tracks() {
                 .wheel {
                     width: 28px;
                     height: 28px;
-                    background: #555;
+                    background: var(--color-black);
                     border-radius: 50%;
-                    border: 3px solid #888;
+                    border: 3px solid var(--color-white);
                 }
                 .track-rails {
                     width: 100%;
@@ -417,7 +430,7 @@ export default function Tracks() {
                 .detail-icon-box {
                     width: 100px;
                     height: 100px;
-                    border: 2px solid #fff;
+                    border: 2px solid var(--color-white);
                     border-radius: 10px;
                     display: flex;
                     align-items: center;

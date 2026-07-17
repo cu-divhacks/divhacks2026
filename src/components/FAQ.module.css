@@ -4,6 +4,7 @@
     padding: 60px 20px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
 }
 
 .faqHeader {
@@ -16,10 +17,10 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #ffffff;
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    color: var(--color-white);
+    text-shadow: 0 0 20px color-mix(in srgb, var(--color-black) 30%, transparent);
     margin-bottom: 10px;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    filter: drop-shadow(0 0 10px color-mix(in srgb, var(--color-white) 20%, transparent));
 }
 
 .faqGrid {
@@ -38,18 +39,18 @@
 .faqColumnTitle {
     font-size: 1.5em;
     font-weight: bold;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    color: var(--color-white);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--color-white) 30%, transparent);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 8px;
-    border-bottom: 2px solid #00ffff;
+    border-bottom: 2px solid var(--color-lightteal);
     padding-bottom: 8px;
     font-family: var(--font-title), sans-serif;
 }
 
 .faqItem {
-    background: rgba(10, 10, 10, 0.7);
+    background: color-mix(in srgb, var(--color-black) 70%, transparent);
     border: none;
     border-radius: 8px;
     padding: 16px;
@@ -62,28 +63,28 @@
 
 .faqItem:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(0, 255, 200, 0.4), inset 0 0 15px rgba(0, 255, 0, 0.2);
+    box-shadow: 0 10px 40px color-mix(in srgb, var(--color-lightteal) 40%, transparent), inset 0 0 15px color-mix(in srgb, var(--color-lightteal) 20%, transparent);
 }
 
 /* Color variants - 4 different color patterns */
 .color0 {
     clip-path: polygon(0% 10%, 100% 0%, 100% 90%, 95% 100%, 5% 95%, 0% 85%);
-    box-shadow: 0 0 20px rgba(68, 194, 153, 0.2), inset 0 0 10px rgba(68, 194, 153, 0.08);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-lightteal) 20%, transparent), inset 0 0 10px color-mix(in srgb, var(--color-lightteal) 8%, transparent);
 }
 
 .color1 {
     clip-path: polygon(5% 0%, 100% 5%, 100% 100%, 0% 95%, 0% 20%);
-    box-shadow: 0 0 20px rgba(250, 151, 194, 0.2), inset 0 0 10px rgba(250, 151, 194, 0.08);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-lightpink) 20%, transparent), inset 0 0 10px color-mix(in srgb, var(--color-lightpink) 8%, transparent);
 }
 
 .color2 {
     clip-path: polygon(0% 0%, 95% 0%, 100% 20%, 100% 100%, 10% 100%, 0% 80%);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-white) 20%, transparent), inset 0 0 10px color-mix(in srgb, var(--color-white) 8%, transparent);
 }
 
 .color3 {
     clip-path: polygon(10% 0%, 100% 0%, 100% 85%, 90% 100%, 0% 100%, 0% 10%);
-    box-shadow: 0 0 20px rgba(248, 17, 159, 0.2), inset 0 0 10px rgba(248, 17, 159, 0.08);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-darkpink) 20%, transparent), inset 0 0 10px color-mix(in srgb, var(--color-darkpink) 8%, transparent);
 }
 
 .faqQuestion {
@@ -98,23 +99,23 @@
 
 /* Question colors - left column */
 .color0 .faqQuestion {
-    color: #44c299;
-    text-shadow: 0 0 10px rgba(68, 194, 153, 0.3);
+    color: var(--color-lightteal);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--color-lightteal) 30%, transparent);
 }
 
 .color1 .faqQuestion {
-    color: #fa97c2;
-    text-shadow: 0 0 10px rgba(250, 151, 194, 0.3);
+    color: var(--color-lightpink);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--color-lightpink) 30%, transparent);
 }
 
 .color2 .faqQuestion {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    color: var(--color-white);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--color-white) 30%, transparent);
 }
 
 .color3 .faqQuestion {
-    color: #f8119f;
-    text-shadow: 0 0 10px rgba(248, 17, 159, 0.3);
+    color: var(--color-darkpink);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--color-darkpink) 30%, transparent);
 }
 
 .toggleIcon {
@@ -123,7 +124,7 @@
 }
 
 .faqAnswer {
-    color: #e0e0e0;
+    color: var(--color-white);
     line-height: 1.8;
     font-size: 1.05em;
     max-height: 0;
@@ -135,19 +136,19 @@
 
 /* Answer colors */
 .color0 .faqAnswer {
-    color: #44c299;
+    color: var(--color-lightteal);
 }
 
 .color1 .faqAnswer {
-    color: #fa97c2;
+    color: var(--color-lightpink);
 }
 
 .color2 .faqAnswer {
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 .color3 .faqAnswer {
-    color: #f8119f;
+    color: var(--color-darkpink);
 }
 
 .active .faqAnswer {
@@ -158,19 +159,19 @@
 }
 
 .color0.active .faqAnswer {
-    border-color: rgba(68, 194, 153, 0.3);
+    border-color: color-mix(in srgb, var(--color-lightteal) 30%, transparent);
 }
 
 .color1.active .faqAnswer {
-    border-color: rgba(250, 151, 194, 0.3);
+    border-color: color-mix(in srgb, var(--color-lightpink) 30%, transparent);
 }
 
 .color2.active .faqAnswer {
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: color-mix(in srgb, var(--color-white) 30%, transparent);
 }
 
 .color3.active .faqAnswer {
-    border-color: rgba(248, 17, 159, 0.3);
+    border-color: color-mix(in srgb, var(--color-darkpink) 30%, transparent);
 }
 
 .active .toggleIcon {
