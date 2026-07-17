@@ -8,11 +8,10 @@ const tracks = [
         id: "move-smarter",
         name: "Move Smarter",
         badge: "PHYSICAL MOVEMENT ONLY",
-        badgeColor: "var(--color-blue)",
+        badgeColor: "#fb7e03",
         icon: "/images/move-smarter.png",
-        accentColor: "var(--color-blue)",
-        description:
-            "Getting around the city, but better. Anything about how people and things move through NYC",
+        accentColor: "#4fc3f7",
+        description: "Getting around the city, but better. Anything about how people and things move through NYC",
         tags: ["Transit", "Bikes", "Optimization"],
         focusAreas: [
             "Transit . Bikes . Scooters . Commute",
@@ -23,9 +22,9 @@ const tracks = [
         id: "live-better",
         name: "Live Better",
         badge: "STRICTLY PERSONAL UTILITY",
-        badgeColor: "var(--color-normalyellow)",
+        badgeColor: "#ffb347",
         icon: "/images/live-better.png",
-        accentColor: "var(--color-normalyellow)",
+        accentColor: "#ffb347",
         description:
             "The grind of daily NYC life, optimized. Everything besides transportation — helping one person's day run smoother.",
         tags: ["Groceries", "Meal Planning", "Apartment Hacks"],
@@ -38,9 +37,9 @@ const tracks = [
         id: "know-your-city",
         name: "Know Your City",
         badge: "ANTI TOURIST TRACK",
-        badgeColor: "var(--color-green)",
+        badgeColor: "#44C299",
         icon: "/images/know-your-city.png",
-        accentColor: "var(--color-green)",
+        accentColor: "#44C299",
         description:
             "NYC, block by block. Helping people feel more connected to their neighborhood and local culture.",
         tags: ["Hidden Gems", "Local Events", "Neighborhood"],
@@ -68,7 +67,7 @@ const tracks = [
 
 export default function Tracks() {
     const [selectedTrack, setSelectedTrack] = useState(tracks[0]);
-
+    
     return (
         <section id="tracks" className="tracks-section">
             <Splash
@@ -84,10 +83,6 @@ export default function Tracks() {
 
             {/* Title sign */}
             <div className="tracks-sign-wrapper">
-                <div className="tracks-sign-posts">
-                    <div className="sign-post" />
-                    <div className="sign-post" />
-                </div>
                 <div className="tracks-sign">
                     <h2 className="tracks-title">TRACKS</h2>
                 </div>
@@ -101,9 +96,7 @@ export default function Tracks() {
                 <div className="train-side-panel">
                     <div className="train-light" />
                     <div className="train-door">
-                        <span className="train-label">
-                            0{tracks.indexOf(selectedTrack) + 1}
-                        </span>
+                        <span className="train-label">TRK - 0{tracks.indexOf(selectedTrack) + 1}</span>
                     </div>
                 </div>
 
@@ -112,7 +105,7 @@ export default function Tracks() {
                     {tracks.map((track) => (
                         <button
                             key={track.id}
-                            className={`train-window ${selectedTrack.id === track.id ? "active" : ""}`}
+                            className={`train-window ${selectedTrack.id === track.id ? "active" : ""}` }
                             onClick={() => setSelectedTrack(track)}
                             style={
                                 {
@@ -154,20 +147,16 @@ export default function Tracks() {
                 </div>
             </div>
 
-            {/* Detail panel */}
+            { /* Detail panel */ }
             <div className="track-detail">
                 <div className="detail-left">
-                    <div
-                        className="detail-icon-box"
-                        style={{ borderColor: selectedTrack.accentColor }}
-                    >
-                        <img
+                    <div className="detail-icon-box" style={{ borderColor: selectedTrack.accentColor }}>
+                        <img 
                             src={selectedTrack.icon}
                             alt={selectedTrack.name}
                             className="detail-icon"
                             onError={(e) => {
-                                (e.target as HTMLImageElement).style.display =
-                                    "none";
+                                (e.target as HTMLImageElement).style.display = "none";
                             }}
                         />
                     </div>
@@ -181,17 +170,12 @@ export default function Tracks() {
                             </h3>
                             <span
                                 className="detail-badge"
-                                style={{
-                                    borderColor: selectedTrack.accentColor,
-                                    color: selectedTrack.accentColor,
-                                }}
+                                style={{ borderColor: selectedTrack.accentColor, color: selectedTrack.accentColor }}
                             >
                                 {selectedTrack.badge}
                             </span>
                         </div>
-                        <p className="detail-description">
-                            {selectedTrack.description}
-                        </p>
+                        <p className="detail-description">{selectedTrack.description}</p>
                         <div className="detail-tags">
                             {selectedTrack.tags.map((tag) => (
                                 <span key={tag} className="tag">
@@ -202,11 +186,15 @@ export default function Tracks() {
                     </div>
                 </div>
 
-                {/* <div className="detail-focus">
-                    <p
-                        className="focus-label"
-                        style={{ color: selectedTrack.accentColor }}
-                    >
+                <div className="detail-focus" 
+                    style={{ '--box-glow' : selectedTrack.accentColor } as React.CSSProperties}>
+                    <img
+                        src="/images/splash.png"
+                        alt=""
+                        className="focus-splatter"
+                        onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                    />
+                    <p className="focus-label" style={{ color: selectedTrack.accentColor }}>
                         FOCUS AREAS
                     </p>
                     {selectedTrack.focusAreas.map((area, i) => (
@@ -214,22 +202,17 @@ export default function Tracks() {
                             . {area}
                         </p>
                     ))}
-                    <div
-                        className="focus-badge"
-                        style={{
-                            borderColor: selectedTrack.accentColor,
-                            color: selectedTrack.accentColor,
-                        }}
-                    >
+                    <div className="focus-badge" style={{ borderColor: selectedTrack.accentColor, color: selectedTrack.accentColor }}>
                         {selectedTrack.badge}
                     </div>
-                </div> */}
+                </div>
             </div>
 
             <style jsx>{`
+                @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
                 .tracks-section {
-                    background-color: var(--color-black);
-                    padding: 60px 20px 80px;
+                    background-color: rgba(42, 13, 53, 1);
+                    padding: 60px 40px 80px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -243,30 +226,39 @@ export default function Tracks() {
                     flex-direction: column;
                     align-items: center;
                     margin-bottom: 16px;
+                    margin-top: -60px;
+                    position: relative;
+                    width: 100%;
+                    max-width: 900px;
                 }
-                .tracks-sign-posts {
-                    display: flex;
-                    gap: 200px;
-                }
-                .sign-post {
-                    width: 14px;
-                    height: 40px;
-                    background: var(--color-normalorange);
-                    border-radius: 2px;
+
+                .splatter-bg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 220%; 
+                    height: auto;
+                    z-index: 0;
+                    pointer-events: none;
                 }
                 .tracks-sign {
-                    background: var(--color-normalorange);
+                    background: transparent;
                     padding: 14px 60px;
-                    border-radius: 6px;
                     margin-top: -2px;
+                    position: relative;
                 }
                 .tracks-title {
-                    font-size: 3rem;
-                    font-weight: 900;
-                    color: var(--color-white);
-                    letter-spacing: 6px;
+                    font-family: 'Sedgwick Ave Display', cursive;
+                    font-size: 5rem;
+                    color: #ffffff;
+                    -webkit-text-stroke: 2px black;
+                    text-shadow: 5px 5px 0px #31983c;
+                    letter-spacing: 4px;
                     margin: 0;
-                    text-shadow: 2px 2px 0 color-mix(in srgb, var(--color-black) 40%, transparent);
+                    transform: rotate(-2deg);
+                    position: reative;
+                    z-index: 1;
                 }
                 .tracks-subtitle {
                     color: var(--color-white);
@@ -279,22 +271,22 @@ export default function Tracks() {
                     width: 100%;
                     max-width: 1100px;
                     display: flex;
-                    background: var(--color-normalpurple);
+                    background: rgba(42, 13, 53, 1);
                     border-radius: 8px 8px 0 0;
-                    border: 3px solid var(--color-normalpurple);
+                    border: 3px solid #c090c0;
                     overflow: hidden;
                     min-height: 160px;
                 }
                 .train-side-panel {
                     width: 80px;
-                    background: var(--color-normalpurple);
+                    background: #9a6a9a;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     gap: 12px;
                     padding: 16px 8px;
-                    border-right: 3px solid var(--color-normalpurple);
+                    border-right: 3px solid #c090c0;
                     flex-shrink: 0;
                 }
                 .train-light {
@@ -305,8 +297,8 @@ export default function Tracks() {
                     box-shadow: 0 0 8px var(--color-normalyellow);
                 }
                 .train-door {
-                    background: var(--color-normalpurple);
-                    border: 2px solid var(--color-normalpurple);
+                    background: #7a507a;
+                    border: 2px solid #c090c0;
                     border-radius: 4px;
                     width: 48px;
                     height: 60px;
@@ -329,8 +321,8 @@ export default function Tracks() {
                     flex: 1;
                 }
                 .train-window {
-                    background: var(--color-black);
-                    border: 2px solid var(--color-black);
+                    background: #000000;
+                    border: 2px solid #f8119f;
                     border-radius: 6px;
                     display: flex;
                     flex-direction: column;
@@ -348,7 +340,8 @@ export default function Tracks() {
                 }
                 .train-window.active {
                     border-color: var(--accent);
-                    box-shadow: 0 0 12px var(--accent);
+                    box-shadow: 6px 6px 0px var(--accent);
+                    transform: translate(-3px, -3px);
                 }
                 .window-icon-circle {
                     width: 70px;
@@ -367,10 +360,11 @@ export default function Tracks() {
                     border-radius: 50%;
                 }
                 .window-label {
-                    color: var(--color-white);
-                    font-size: 0.75rem;
+                    color: #fffcfc;
+                    font-family: Sedgwick Ave Display, cursive;
+                    font-size: 1rem;
                     text-align: center;
-                    letter-spacing: 0.5px;
+                    letter-spacing: 2px;
                 }
                 .train-window.active .window-label {
                     color: var(--accent);
@@ -406,7 +400,7 @@ export default function Tracks() {
                 }
                 .rail {
                     height: 6px;
-                    background: var(--color-normalorange);
+                    background: #e07b20;
                     margin: 2px 0;
                 }
                 .rail-ties {
@@ -417,8 +411,8 @@ export default function Tracks() {
                 .rail-tie {
                     flex: 1;
                     height: 18px;
-                    background: #5a3a1a;
-                    border-right: 2px solid var(--color-black);
+                    background: #434241;
+                    border-right: 2px solid #0a0a1a;
                 }
                 .track-detail {
                     width: 100%;
@@ -442,7 +436,7 @@ export default function Tracks() {
                     align-items: center;
                     justify-content: center;
                     flex-shrink: 0;
-                    background: var(--color-white);
+                    background: #fefefe;
                 }
                 .detail-icon {
                     width: 70px;
@@ -460,21 +454,21 @@ export default function Tracks() {
                     flex-wrap: wrap;
                 }
                 .detail-name {
-                    font-size: 1.6rem;
-                    font-weight: 800;
+                    font-size: 2rem;
                     margin: 0;
+                    font-family: 'Sedgwick Ave Display', cursive;
                 }
                 .detail-badge {
-                    border: 1px solid;
+                    border: 1px solid var(--box-glow);
                     border-radius: 20px;
                     padding: 2px 12px;
-                    font-size: 0.65rem;
+                    font-size: 0.8rem;
                     letter-spacing: 1.5px;
                     font-weight: 600;
                 }
                 .detail-description {
-                    color: var(--color-white);
-                    font-size: 0.95rem;
+                    color: #f5f5f5;
+                    font-size: 1rem;
                     line-height: 1.6;
                     margin: 0 0 16px;
                 }
@@ -484,8 +478,8 @@ export default function Tracks() {
                     flex-wrap: wrap;
                 }
                 .tag {
-                    border: 1px solid var(--color-black);
-                    color: var(--color-white);
+                    border: 1px solid var(--box-glow);
+                    color: #ccc;
                     border-radius: 20px;
                     padding: 4px 14px;
                     font-size: 0.8rem;
@@ -493,51 +487,82 @@ export default function Tracks() {
 
                 /* Focus areas */
                 .detail-focus {
-                    background: var(--color-black);
-                    border: 1px solid var(--color-black);
-                    border-radius: 10px;
+                    background: #111;
+                    border: 2px solid var(--box-glow);
+                    border-radius: 4px;
                     padding: 20px 24px;
                     min-width: 280px;
                     flex-shrink: 0;
+                    position: relative;
+                    z-index: 1;
+                    animation: neonFlicker 5s infinite;
+                }
+
+                @keyframes neonFlicker {
+                    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                        box-shadow:
+                            0 0 10px var(--box-glow),
+                            0 0 20px var(--box-glow),
+                            inset 0 0 10px var(--box-glow);
+                        border-color: var(--box-glow);
+                        opacity: 1;
+                    }
+                    20%, 24%, 55% {
+                        box-shadow: none;
+                        border-color: #333;
+                        opacity: 0.8;
+                    }
+                }
+                .focus-splatter {
+                    position: absolute;
+                    bottom: -40px;
+                    right: -40px;
+                    width: 250px;
+                    transform: rotate(25deg);
+                    z-index: -1;
+                    opacity: 0.6;
+                    pointer-events: none;
                 }
                 .focus-label {
-                    color: var(--color-normalorange);
+                    color: #ffb347;
                     font-size: 0.7rem;
                     font-weight: 700;
                     letter-spacing: 2px;
                     margin: 0 0 12px;
                 }
                 .focus-area {
-                    color: var(--color-white);
-                    font-size: 0.82rem;
+                    color: #ffffff;
+                    font-family: 'San Francisco', sans-serif;
+                    font-size: 0.95rem;
                     margin: 0 0 6px;
                     line-height: 1.5;
                 }
                 .focus-badge {
                     margin-top: 16px;
-                    border: 1px solid;
+                    border: 2px solid var(--box-glow);
                     border-radius: 6px;
                     padding: 6px 12px;
                     font-size: 0.72rem;
                     letter-spacing: 1px;
+                    font-family: San Francisco, sans-serif;
                     text-align: center;
                     font-weight: 600;
                 }
 
                 @media (max-width: 768px) {
-                    .train-windows {
-                        grid-template-columns: repeat(2, 1fr);
-                    }
-                    .track-detail {
-                        flex-direction: column;
-                    }
-                    .detail-focus {
-                        min-width: unset;
-                        width: 100%;
-                    }
-                    .tracks-title {
-                        font-size: 2rem;
-                    }
+                .train-windows {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .track-detail {
+                    flex-direction: column;
+                }
+                .detail-focus {
+                    min-width: unset;
+                    width: 100%;
+                }
+                .tracks-title {
+                    font-size: 2rem;
+                }
                 }
             `}</style>
         </section>
