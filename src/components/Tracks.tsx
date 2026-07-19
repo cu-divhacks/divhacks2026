@@ -186,7 +186,7 @@ export default function Tracks() {
                     </div>
                 </div>
 
-                <div className="detail-focus" 
+                {/* <div className="detail-focus" 
                     style={{ '--box-glow' : selectedTrack.accentColor } as React.CSSProperties}>
                     <img
                         src="/images/splash.png"
@@ -205,7 +205,7 @@ export default function Tracks() {
                     <div className="focus-badge" style={{ borderColor: selectedTrack.accentColor, color: selectedTrack.accentColor }}>
                         {selectedTrack.badge}
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <style jsx>{`
