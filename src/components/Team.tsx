@@ -46,8 +46,14 @@ const teamMembers = [
     {
         id: 8,
         name: "Sydney Kaufman",
-        role: "Publicity",
+        role: "Publicity Co-Lead",
         image: "/images/Team/Sydney.jpg",
+    },
+    {
+        id: 9,
+        name: "Mia Collins",
+        role: "Tech Development",
+        image: "/images/Team/Mia.png"
     }
 ];
 
