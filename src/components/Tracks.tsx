@@ -550,6 +550,12 @@ export default function Tracks() {
                 }
 
                 @media (max-width: 768px) {
+                .tracks-section {
+                    padding: 48px 20px 60px;
+                }
+                .tracks-sign {
+                    padding: 10px 28px;
+                }
                 .train-windows {
                     grid-template-columns: repeat(2, 1fr);
                 }
@@ -562,6 +568,12 @@ export default function Tracks() {
                 }
                 .tracks-title {
                     font-size: 2rem;
+                }
+                }
+
+                @media (max-width: 400px) {
+                .train-windows {
+                    grid-template-columns: 1fr;
                 }
                 }
             `}</style>

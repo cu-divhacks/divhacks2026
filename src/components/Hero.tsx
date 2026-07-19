@@ -65,6 +65,7 @@ const styles = `
 
   .hero-ctas {
     display: flex;
+    flex-wrap: wrap;
     gap: 14px;
     align-items: center;
     margin-bottom: 32px;
@@ -72,13 +73,13 @@ const styles = `
 
   .btn-primary {
     font-family: var(--font-title), sans-serif;
-    font-size: 44px;
+    font-size: clamp(26px, 6vw, 44px);
     letter-spacing: 2px;
     background: var(--color-darkpink);
     color: var(--color-white);
     border: none;
     border-radius: 8px;
-    padding: 14px 48px;
+    padding: 14px clamp(24px, 6vw, 48px);
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
@@ -96,7 +97,8 @@ const styles = `
 
   .meta-row {
     display: flex;
-    gap: 36px;
+    flex-wrap: wrap;
+    gap: 20px 36px;
     width: fit-content;
   }
 
@@ -108,13 +110,13 @@ const styles = `
 
   .meta-label {
     font-family: var(--font-title), sans-serif;
-    font-size: 29px;
+    font-size: clamp(22px, 3vw, 29px);
     letter-spacing: 2.5px;
     color: var(--color-lightteal);
   }
 
   .meta-val {
-    font-size: 25px;
+    font-size: clamp(18px, 2.5vw, 25px);
     font-weight: 700;
     color: var(--color-white);
     white-space: nowrap;
@@ -145,6 +147,23 @@ const styles = `
     }
     .hero-right {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-body {
+      padding: 32px 20px 48px;
+    }
+    .headline {
+      font-size: clamp(38px, 13vw, 56px);
+      letter-spacing: 1px;
+    }
+    .hero-sub {
+      font-size: 16px;
+    }
+    .meta-row {
+      flex-direction: column;
+      gap: 16px;
     }
   }
 
