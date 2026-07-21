@@ -158,3 +158,19 @@
     color: var(--color-lightteal);
     text-shadow: 0 0 10px color-mix(in srgb, var(--color-lightteal) 25%, transparent);
 }
+
+@media (max-width: 600px) {
+    .wrapper {
+        padding: 10px;
+    }
+
+    .app {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .stage {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+}

@@ -14,7 +14,7 @@ export default function Home() {
             <About />
             <Tracks />
             <Sponsors />
-            {/* <FAQ /> */}
+            <FAQ />
             <Puzzle />
             <Team />
             <Footer />
