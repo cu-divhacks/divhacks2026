@@ -51,12 +51,12 @@ const FAQ: React.FC = () => {
                     answer: "Yes, we will be providing meals and snacks throughout the weekend. If you have any dietary restrictions, there is a space for you to note this on your application.",
                 },
                 {
-                    question: "What can I win?",
-                    answer: "Amazing prizes including cash awards, tech gadgets, internship opportunities with sponsors, and bragging rights! Check our sponsors for specific prize details.",
+                    question: "Will there be overnight accommodations?",
+                    answer: "We will provide an overnight hacking space where non-Columbia/Barnard students can work.",
                 },
                 {
-                    question: "Will there be overnight accommodations?",
-                    answer: "We will provide an overnight hacking space where non-Columbia/Barnard students can work and sleep.",
+                    question: "I still have questions!",
+                    answer: "Please email us at cu.divhacks@gmail.com.",
                 },
             ],
         },
