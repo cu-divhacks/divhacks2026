@@ -37,6 +37,10 @@ const FAQ: React.FC = () => {
                     question: "Who can come?",
                     answer: "Any college student (undergraduate or graduate) aged 18+ is welcome to apply! You are not required to have prior coding experience or even be a CS major.",
                 },
+                {
+                    question: "How do teams work?",
+                    answer: "You can work in teams of up to 4 people. If you don’t have a team, please don't worry! There will be plenty of opportunities to connect with other attendees and form teams at DivHacks.",
+                },
             ],
         },
         {
