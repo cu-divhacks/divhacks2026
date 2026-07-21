@@ -23,19 +23,19 @@ const FAQ: React.FC = () => {
             items: [
                 {
                     question: "What is DivHacks?",
-                    answer: "DivHacks is a hackathon celebrating diversity and innovation in technology. Join us for a weekend of coding, creativity, and collaboration with amazing hackers from around the world.",
+                    answer: "DivHacks is an awesome 32-hour long in-person event hosted at Columbia University where students of all backgrounds come together to bring something new to life! Hackers can build any software or hardware project. There will also be lots of workshops, fun games, speakers, and prizes for you to enjoy throughout the event!",
                 },
                 {
                     question: "What is the cost?",
-                    answer: "DivHacks is completely free to attend! We provide meals, refreshments, and fun activities throughout the hackathon. No hidden costs.",
+                    answer: "DivHacks is free for all participants! All attendees will have access to mentors, workshops, events, an overnight hacking space, and food throughout the weekend. However, we do not provide travel reimbursements.",
                 },
                 {
-                    question: "Who can apply?",
-                    answer: "Anyone passionate about technology and innovation can apply! No experience necessary. Beginners and experts welcome. High school and college students are eligible.",
+                    question: "What can I win?",
+                    answer: "We offer three podium prizes, a beginner prize, and four track prizes. Hackers also have the opportunity to win prizes from sponsor challenges. Stay tuned for the official list!",
                 },
                 {
-                    question: "I still have questions!",
-                    answer: "Reach out to us on Discord, Twitter, or email us at cu.divhacks@gmail.com. Our team is happy to help! You can also check our FAQ page on the website.",
+                    question: "Who can come?",
+                    answer: "Any college student (undergraduate or graduate) aged 18+ is welcome to apply! You are not required to have prior coding experience or even be a CS major.",
                 },
             ],
         },
@@ -44,11 +44,11 @@ const FAQ: React.FC = () => {
             items: [
                 {
                     question: "Can I attend virtually?",
-                    answer: "Yes! We offer both in-person and virtual participation options. You can compete from anywhere in the world and still win amazing prizes.",
+                    answer: "Unfortunately, DivHacks is only offered in-person.",
                 },
                 {
                     question: "Will food be provided?",
-                    answer: "Absolutely! We provide breakfast, lunch, dinner, and snacks throughout the hackathon. We accommodate various dietary restrictions.",
+                    answer: "Yes, we will be providing meals and snacks throughout the weekend. If you have any dietary restrictions, there is a space for you to note this on your application.",
                 },
                 {
                     question: "What can I win?",
