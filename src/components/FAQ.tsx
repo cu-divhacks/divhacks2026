@@ -129,7 +129,10 @@ const FAQ: React.FC = () => {
                         </div>
 
                         {column.items.map((item, itemIndex) => {
-                            const globalIndex = columnIndex * 4 + itemIndex;
+                            const globalIndex = faqData
+                             .slice(0, columnIndex)
+                             .reduce((acc, col) => acc + col.items.length, 0) + itemIndex;
+
                             const isActive = activeIndex === globalIndex;
 
                             return (
