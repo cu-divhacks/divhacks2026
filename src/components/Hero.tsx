@@ -140,13 +140,29 @@ const styles = `
     .hero-body {
       flex-direction: column;
       align-items: flex-start;
+      gap: 24px;
       padding: 40px 32px 60px;
     }
-    .headline {
-      white-space: normal;
+    /* let the left-column children reorder alongside the logo on mobile */
+    .hero-left {
+      display: contents;
     }
     .hero-right {
       width: 100%;
+      order: 1;
+    }
+    .headline {
+      white-space: normal;
+      order: 2;
+    }
+    .hero-sub {
+      order: 3;
+    }
+    .hero-ctas {
+      order: 4;
+    }
+    .meta-row {
+      order: 5;
     }
   }
 
@@ -233,9 +249,20 @@ const styles = `
   }
 
   @media (max-width: 640px) {
+    .banner {
+      min-height: 0;
+    }
     .banner-inner {
       justify-content: center;
       text-align: center;
+      gap: 4px 24px;
+      padding: 10px 24px;
+    }
+    .banner-title, .banner-sep, .countdown-num {
+      font-size: clamp(22px, 6.5vw, 30px);
+    }
+    .banner-title {
+      white-space: nowrap;
     }
   }
 `;

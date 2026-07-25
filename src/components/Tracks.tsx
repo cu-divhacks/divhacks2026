@@ -178,7 +178,15 @@ export default function Tracks() {
                         <p className="detail-description">{selectedTrack.description}</p>
                         <div className="detail-tags">
                             {selectedTrack.tags.map((tag) => (
-                                <span key={tag} className="tag">
+                                <span
+                                    key={tag}
+                                    className="tag"
+                                    style={{
+                                        borderColor: selectedTrack.accentColor,
+                                        color: selectedTrack.accentColor,
+                                        backgroundColor: `color-mix(in srgb, ${selectedTrack.accentColor} 15%, transparent)`,
+                                    }}
+                                >
                                     {tag}
                                 </span>
                             ))}
@@ -478,11 +486,12 @@ export default function Tracks() {
                     flex-wrap: wrap;
                 }
                 .tag {
-                    border: 1px solid var(--box-glow);
-                    color: #ccc;
+                    border: 1.5px solid;
                     border-radius: 20px;
                     padding: 4px 14px;
                     font-size: 0.8rem;
+                    font-weight: 600;
+                    white-space: nowrap;
                 }
 
                 /* Focus areas */
@@ -551,7 +560,10 @@ export default function Tracks() {
 
                 @media (max-width: 768px) {
                 .tracks-section {
-                    padding: 48px 20px 60px;
+                    padding: 56px 20px 60px;
+                }
+                .tracks-sign-wrapper {
+                    margin-top: 0;
                 }
                 .tracks-sign {
                     padding: 10px 28px;
@@ -562,12 +574,26 @@ export default function Tracks() {
                 .track-detail {
                     flex-direction: column;
                 }
+                .detail-left {
+                    flex-direction: column;
+                }
+                .detail-badge {
+                    padding-left: 0;
+                }
                 .detail-focus {
                     min-width: unset;
                     width: 100%;
                 }
                 .tracks-title {
                     font-size: 2rem;
+                }
+                .detail-tags {
+                    flex-wrap: nowrap;
+                    gap: 8px;
+                }
+                .tag {
+                    font-size: 0.7rem;
+                    padding: 4px 10px;
                 }
                 }
 

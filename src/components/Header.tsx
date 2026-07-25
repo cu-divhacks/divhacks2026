@@ -8,12 +8,13 @@ export default function Header() {
 
     return (
         <header className="relative w-full z-20 flex items-center justify-end px-6 py-6 lg:px-12 lg:py-8 bg-black">
-            <div className="absolute left-1/2 top-0 -translate-x-1/2 md:left-12 md:translate-x-0">
+            <div className="absolute left-2 top-0 md:left-12">
                 <Image
                     src="/league-2027-season-trust-badge-template_White.svg"
                     alt="MLH Trust Badge"
                     width={130}
                     height={228}
+                    className="h-auto w-20 md:w-[130px]"
                 />
             </div>
 
