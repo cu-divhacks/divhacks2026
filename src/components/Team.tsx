@@ -112,14 +112,13 @@ export default function Team() {
             <style jsx>{`
                 .team-section {
                     background-color: #1A1A1A;
-                    padding: 80px 40px 100px;
+                    padding: 80px 40px 60px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     font-family: var(--font-geist-sans), sans-serif;
                     position: relative;
                     overflow: hidden;
-                    min-height: 100vh;
                 }
 
                 /* Background Splatter */
@@ -147,13 +146,14 @@ export default function Team() {
                     font-family: 'Sedgwick Ave Display', cursive;
                     font-size: 5rem;
                     color: #FFC83D;
-                    -webkit-text-stroke: 2px #000000; 
+                    -webkit-text-stroke: 2px #000000;
                     text-shadow: 5px 5px 0px #31983C;
                     margin: 0 0 60px 0;
                     letter-spacing: 4px;
                     position: relative;
                     z-index: 1;
-                    transform: rotate(-2deg); 
+                    transform: rotate(-2deg);
+                    white-space: nowrap;
                 }
 
                 .marquee-container {
@@ -283,6 +283,12 @@ export default function Team() {
                 @media (max-width: 480px) {
                     .team-grid {
                         grid-template-columns: 1fr;
+                    }
+                    .team-section {
+                        padding: 56px 20px 48px;
+                    }
+                    .team-title {
+                        font-size: clamp(28px, 11vw, 56px);
                     }
                 }
             `}</style>

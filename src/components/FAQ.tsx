@@ -86,7 +86,9 @@ const FAQ: React.FC = () => {
                       ? styles.color1
                       : itemNum === 4
                         ? styles.color2
-                        : styles.color3
+                        : itemNum === 5
+                          ? styles.color0
+                          : styles.color3
                 : // Right column (columnIndex 1)
                   itemNum === 2
                   ? styles.color3

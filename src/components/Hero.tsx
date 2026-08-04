@@ -152,7 +152,8 @@ const styles = `
       order: 1;
     }
     .headline {
-      white-space: normal;
+      font-size: clamp(20px, 8vw, 64px);
+      letter-spacing: 1px;
       order: 2;
     }
     .hero-sub {
@@ -166,20 +167,48 @@ const styles = `
     }
   }
 
+  @media (min-width: 481px) and (max-width: 900px) {
+    .hero-right {
+      display: none;
+    }
+    .headline {
+      font-size: clamp(46px, 9.5vw, 90px);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .banner-title,
+    .banner-sep {
+      display: none;
+    }
+  }
+
   @media (max-width: 480px) {
     .hero-body {
       padding: 32px 20px 48px;
     }
     .headline {
-      font-size: clamp(38px, 13vw, 56px);
-      letter-spacing: 1px;
+      font-size: clamp(28px, 10vw, 48px);
+      align-self: center;
+      text-align: center;
+    }
+    .hero-ctas {
+      align-self: center;
+      justify-content: center;
+      width: 100%;
     }
     .hero-sub {
       font-size: 16px;
     }
     .meta-row {
-      flex-direction: column;
-      gap: 16px;
+      gap: 12px 20px;
+    }
+    .meta-label {
+      font-size: 16px;
+    }
+    .meta-val {
+      font-size: 14px;
+      white-space: normal;
     }
   }
 
@@ -258,11 +287,14 @@ const styles = `
       gap: 4px 24px;
       padding: 10px 24px;
     }
-    .banner-title, .banner-sep, .countdown-num {
+    .countdown-num {
       font-size: clamp(22px, 6.5vw, 30px);
     }
-    .banner-title {
-      white-space: nowrap;
+    .countdown {
+      gap: 10px;
+    }
+    .countdown-item {
+      min-width: 40px;
     }
   }
 `;
