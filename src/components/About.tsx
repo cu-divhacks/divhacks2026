@@ -37,7 +37,7 @@ export default function About() {
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 xl:gap-24 items-center max-w-6xl mx-auto">
                     <div className="lg:col-span-1 flex flex-col justify-center items-center lg:items-start">
                         <h2
-                            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl whitespace-nowrap select-none transform -rotate-3 text-center lg:text-left text-normalorange"
+                            className="text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-8xl select-none transform -rotate-3 text-center lg:text-left text-normalorange"
                             style={{
                                 textShadow:
                                     "3px 3px 0px var(--color-lightpink), 6px 6px 0px var(--color-normalpurple), 9px 9px 0px var(--color-black)",
