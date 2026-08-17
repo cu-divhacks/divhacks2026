@@ -60,6 +60,12 @@ const teamMembers = [
         name: "Winnie Wang",
         role: "Tech Development",
         image: "/images/Team/Winnie.jpg"
+    },
+    {
+        id: 11,
+        name: "Tyler M",
+        role: "Logistics",
+        image: "/images/Team/Tyler.JPG"
     }
 ];
 
