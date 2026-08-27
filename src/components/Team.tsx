@@ -63,9 +63,15 @@ const teamMembers = [
     },
     {
         id: 11,
-        name: "Tyler M",
+        name: "Tyra M",
         role: "Logistics",
-        image: "/images/Team/Tyler.JPG"
+        image: "/images/Team/Tyra.JPG"
+    },
+    {
+        id: 12,
+        name: "Ruhani Nagda",
+        role: "Mentors & Judges",
+        image: "/images/Team/Ruhani.jpg"
     }
 ];
 
