@@ -203,7 +203,7 @@ export default function Tracks() {
                 }
                 .track-card-name {
                     font-family: 'Sedgwick Ave Display', cursive;
-                    font-size: 1.25rem;
+                    font-size: 2rem;
                     color: var(--accent);
                     margin: 0;
                 }
@@ -212,14 +212,14 @@ export default function Tracks() {
                     color: var(--accent);
                     border-radius: 20px;
                     padding: 2px 10px;
-                    font-size: 0.62rem;
+                    font-size: 0.75rem;
                     letter-spacing: 1px;
                     font-weight: 600;
                     white-space: nowrap;
                 }
                 .track-card-description {
                     color: #f5f5f5;
-                    font-size: 0.85rem;
+                    font-size: 1rem;
                     line-height: 1.5;
                     margin: 0 0 10px;
                 }
@@ -234,7 +234,7 @@ export default function Tracks() {
                     background: color-mix(in srgb, var(--accent) 15%, transparent);
                     border-radius: 20px;
                     padding: 3px 10px;
-                    font-size: 0.7rem;
+                    font-size: 0.75rem;
                     font-weight: 600;
                     white-space: nowrap;
                 }
