@@ -34,10 +34,10 @@ export default function About() {
                     style={{ backgroundColor: "color-mix(in srgb, var(--color-darkteal) 15%, transparent)" }}
                 ></div>
 
-                <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 lg:gap-24 items-center max-w-6xl mx-auto">
-                    <div className="md:col-span-1 flex flex-col justify-center items-center md:items-start">
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 xl:gap-24 items-center max-w-6xl mx-auto">
+                    <div className="lg:col-span-1 flex flex-col justify-center items-center lg:items-start">
                         <h2
-                            className="text-5xl sm:text-6xl md:text-8xl select-none transform -rotate-3 text-center md:text-left text-normalorange"
+                            className="text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-8xl select-none transform -rotate-3 text-center lg:text-left text-normalorange"
                             style={{
                                 textShadow:
                                     "3px 3px 0px var(--color-lightpink), 6px 6px 0px var(--color-normalpurple), 9px 9px 0px var(--color-black)",
@@ -48,7 +48,7 @@ export default function About() {
                         </h2>
                     </div>
 
-                    <div className="md:col-span-2 relative">
+                    <div className="lg:col-span-2 relative">
                         <div
                             className="absolute inset-0 rounded-xl backdrop-blur-md -rotate-2 pointer-events-none animate-pulse"
                             style={{
