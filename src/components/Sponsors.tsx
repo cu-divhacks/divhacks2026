@@ -11,12 +11,12 @@ interface SponsorLogoProps {
 
 const sponsorData = [
     // Platinum sponsors (largest)
-    { id: 1, src: "/images/Logo/capitalOneLogo.svg", alt: "Capital One", rank: "platinum" as const },
-    { id: 2, src: "/images/Logo/spacexaiLogo.svg", alt: "SpaceX AI", rank: "platinum" as const },
+    { id: 1, src: "/images/Logo/rippleLogo.svg", alt: "DivHacks", rank: "platinum" as const },
+    { id: 2, src: "/images/Logo/capitalOneLogo.svg", alt: "Capital One", rank: "platinum" as const },
     // Gold sponsors
-    { id: 3, src: "/images/Logo/redBullLogo.svg", alt: "Red Bull", rank: "gold" as const },
-    // Silver sponsors (TBD - placeholder for now)
-    { id: 4, src: "", alt: "Silver Sponsor TBD", rank: "silver" as const, placeholder: true },
+    { id: 3, src: "/images/Logo/spacexaiLogo.svg", alt: "SpaceX AI", rank: "gold" as const },
+    // Silver sponsors
+    { id: 4, src: "/images/Logo/redBullLogo.svg", alt: "Red Bull", rank: "silver" as const },
     // Bronze sponsors
     { id: 5, src: "/images/Logo/tavilyLogo.svg", alt: "Tavily", rank: "bronze" as const },
 ];
@@ -41,21 +41,24 @@ function SponsorLogo({ src, alt, rank }: SponsorLogoProps) {
 export default function Sponsors() {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Group sponsors by rank and arrange in wave pattern: large-small-large
+    // Group sponsors by rank
     const platinumSponsors = sponsorData.filter(s => s.rank === "platinum");
     const goldSponsors = sponsorData.filter(s => s.rank === "gold");
     const silverSponsors = sponsorData.filter(s => s.rank === "silver");
     const bronzeSponsors = sponsorData.filter(s => s.rank === "bronze");
 
-    // Create rows: 1-2 logos per row, alternating sizes
+    // Create rows: wave pattern - one, two, one, two...
+    // Row 1: Single Platinum (Ripple - DivHacks host)
+    // Row 2: Platinum + Gold (Capital One + SpaceX AI)
+    // Row 3: Silver + Bronze (Red Bull + Tavily)
     const rows = [
-        // Row 1: Single Platinum (largest)
+        // Row 1: Single Platinum - Ripple (DivHacks)
         [platinumSponsors[0]],
-        // Row 2: Platinum + Gold (large + medium)
+        // Row 2: Platinum + Gold - Capital One + SpaceX AI
         [platinumSponsors[1], goldSponsors[0]],
-        // Row 3: Silver + Bronze (small + small)
+        // Row 3: Silver + Bronze - Red Bull + Tavily
         [silverSponsors[0], bronzeSponsors[0]],
-    ].filter(row => row.some(s => s)); // Filter out empty rows
+    ].filter(row => row.some(s => s));
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -80,7 +83,7 @@ export default function Sponsors() {
             const randomY = (Math.random() - 0.5) * range.y;
             const randomRotate = (Math.random() - 0.5) * range.rotate;
             
-            // Store in CSS variables for easy reset on hover
+            // Store in CSS variables
             (logo as HTMLElement).style.setProperty('--random-x', `${randomX}px`);
             (logo as HTMLElement).style.setProperty('--random-y', `${randomY}px`);
             (logo as HTMLElement).style.setProperty('--random-rotate', `${randomRotate}deg`);
