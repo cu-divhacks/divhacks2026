@@ -25,12 +25,12 @@ export default function Header() {
                 <a href="/#tracks" className="lg:text-lg hover:text-normalyellow">
                     Tracks
                 </a>
-                {/* <a
-                    href="#sponsors"
+                <a
+                    href="/#sponsors"
                     className="lg:text-lg hover:text-normalyellow"
                 >
                     Sponsors
-                </a> */}
+                </a>
                 <a href="/#faq" className="lg:text-lg hover:text-normalyellow">
                     FAQ
                 </a>
@@ -83,6 +83,13 @@ export default function Header() {
                         className="py-3 hover:text-normalyellow"
                     >
                         Tracks
+                    </a>
+                    <a
+                        href="/#sponsors"
+                        onClick={() => setMenuOpen(false)}
+                        className="py-3 hover:text-normalyellow"
+                    >
+                        Sponsors
                     </a>
                     <a
                         href="/#faq"

@@ -47,17 +47,20 @@ export default function Sponsors() {
     const silverSponsors = sponsorData.filter(s => s.rank === "silver");
     const bronzeSponsors = sponsorData.filter(s => s.rank === "bronze");
 
-    // Create rows: wave pattern - one, two, one, two...
-    // Row 1: Single Platinum (Ripple - DivHacks host)
-    // Row 2: Platinum + Gold (Capital One + SpaceX AI)
-    // Row 3: Silver + Bronze (Red Bull + Tavily)
+    // Create rows:
+    // Row 1: Both Platinum side by side (Ripple + Capital One)
+    // Row 2: Single Gold (SpaceX AI)
+    // Row 3: Silver (Red Bull)
+    // Row 4: Bronze (Tavily) - below Red Bull
     const rows = [
-        // Row 1: Single Platinum - Ripple (DivHacks)
-        [platinumSponsors[0]],
-        // Row 2: Platinum + Gold - Capital One + SpaceX AI
-        [platinumSponsors[1], goldSponsors[0]],
-        // Row 3: Silver + Bronze - Red Bull + Tavily
-        [silverSponsors[0], bronzeSponsors[0]],
+        // Row 1: Ripple + Capital One
+        [platinumSponsors[0], platinumSponsors[1]],
+        // Row 2: SpaceX AI
+        [goldSponsors[0]],
+        // Row 3: Red Bull
+        [silverSponsors[0]],
+        // Row 4: Tavily
+        [bronzeSponsors[0]],
     ].filter(row => row.some(s => s));
 
     useEffect(() => {
@@ -71,7 +74,7 @@ export default function Sponsors() {
             // Define random ranges based on rank
             const ranges: Record<string, { x: number; y: number; rotate: number }> = {
                 platinum: { x: 40, y: 24, rotate: 16 },  // -8° ~ +8°
-                gold:     { x: 32, y: 20, rotate: 12 },  // -6° ~ +6°
+                gold:     { x: 32, y: 20, rotate: 4 },   // -2° ~ +2°
                 silver:   { x: 24, y: 16, rotate: 10 },  // -5° ~ +5°
                 bronze:   { x: 20, y: 12, rotate: 8 },   // -4° ~ +4°
             };
@@ -81,7 +84,12 @@ export default function Sponsors() {
             // Generate random transform values for each logo
             const randomX = (Math.random() - 0.5) * range.x;
             const randomY = (Math.random() - 0.5) * range.y;
-            const randomRotate = (Math.random() - 0.5) * range.rotate;
+            let randomRotate = (Math.random() - 0.5) * range.rotate;
+
+            // Pin SpaceX AI (gold) and Red Bull (silver) to opposing tilts so
+            // they read as contrasting angles rather than random noise.
+            if (rank === 'gold') randomRotate = -3;
+            if (rank === 'silver') randomRotate = 4;
             
             // Store in CSS variables
             (logo as HTMLElement).style.setProperty('--random-x', `${randomX}px`);

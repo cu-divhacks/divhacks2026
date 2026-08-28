@@ -34,9 +34,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 32px clamp(48px, 8vw, 96px);
     flex-wrap: wrap;
     min-height: 100px;
+}
+
+/* Extra breathing room between the SpaceX AI row and the Red Bull row */
+.sponsorRow:nth-child(3) {
+    margin-top: 32px;
 }
 
 /* Base styles */
@@ -109,7 +114,7 @@
     }
 
     .sponsorRow {
-        gap: 24px;
+        gap: 24px 40px;
         min-height: 80px;
     }
 
