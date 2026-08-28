@@ -1,0 +1,132 @@
+.sponsorsSection {
+    background-color: rgba(42, 13, 53, 1);
+    padding: 60px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.sponsorsTitle {
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: clamp(48px, 6vw, 72px);
+    color: #ffffff;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 5px 5px 0px #31983c;
+    letter-spacing: 4px;
+    margin: 0 0 48px;
+    text-align: center;
+    transform: rotate(-2deg);
+}
+
+.sponsorsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.sponsorRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    min-height: 100px;
+}
+
+/* Base styles */
+.sponsorLogo {
+    transition: transform 0.3s ease, filter 0.2s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    will-change: transform;
+}
+
+.sponsorLogo:hover {
+    transform: scale(1.05) !important;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+    z-index: 10;
+}
+
+/* Rank sizes - Bronze not too small */
+.rankPlatinum {
+    width: clamp(200px, 28vw, 320px);
+}
+
+.rankGold {
+    width: clamp(160px, 22vw, 240px);
+}
+
+.rankSilver {
+    width: clamp(140px, 18vw, 190px);
+}
+
+.rankBronze {
+    width: clamp(120px, 16vw, 160px);
+}
+
+.sponsorImg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Random transforms using CSS variables */
+.sponsorLogo[data-rank="platinum"] {
+    transform: translate(var(--random-x, 0px), var(--random-y, 0px)) rotate(var(--random-rotate, 0deg));
+}
+
+.sponsorLogo[data-rank="gold"] {
+    transform: translate(var(--random-x, 0px), var(--random-y, 0px)) rotate(var(--random-rotate, 0deg));
+}
+
+.sponsorLogo[data-rank="silver"] {
+    transform: translate(var(--random-x, 0px), var(--random-y, 0px)) rotate(var(--random-rotate, 0deg));
+}
+
+.sponsorLogo[data-rank="bronze"] {
+    transform: translate(var(--random-x, 0px), var(--random-y, 0px)) rotate(var(--random-rotate, 0deg));
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .sponsorsSection {
+        padding: 48px 16px 64px;
+    }
+
+    .sponsorsTitle {
+        font-size: clamp(36px, 8vw, 56px);
+        margin-bottom: 32px;
+    }
+
+    .sponsorsContainer {
+        gap: 28px;
+        padding: 12px;
+    }
+
+    .sponsorRow {
+        gap: 24px;
+        min-height: 80px;
+    }
+
+    /* Stack logos vertically on mobile when multiple in a row */
+    .sponsorRow:has(> :nth-child(2)) {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsorRow {
+        gap: 16px;
+    }
+    
+    .sponsorPlaceholder {
+        height: 60px;
+        font-size: 0.75rem;
+    }
+}
