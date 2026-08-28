@@ -19,10 +19,10 @@ export default function Header() {
             </div>
 
             <nav className="hidden relative z-10 ml-auto md:flex max-w-5xl flex-wrap items-center justify-end gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-white sm:gap-3 lg:gap-4">
-                <a href="#about" className="lg:text-lg hover:text-normalyellow">
+                <a href="/#about" className="lg:text-lg hover:text-normalyellow">
                     About
                 </a>
-                <a href="#tracks" className="lg:text-lg hover:text-normalyellow">
+                <a href="/#tracks" className="lg:text-lg hover:text-normalyellow">
                     Tracks
                 </a>
                 {/* <a
@@ -31,9 +31,14 @@ export default function Header() {
                 >
                     Sponsors
                 </a> */}
-                <a href="#faq" className="lg:text-lg hover:text-normalyellow">
+                <a href="/#faq" className="lg:text-lg hover:text-normalyellow">
                     FAQ
                 </a>
+
+                <a href="/map" className="lg:text-lg hover:text-normalyellow">
+                    Map
+                </a>
+
                 <a
                     href="https://forms.gle/5Cyi44u6HcC5iiZF8"
                     target="_blank"
@@ -66,26 +71,35 @@ export default function Header() {
             {menuOpen && (
                 <nav className="absolute left-0 right-0 top-full z-20 flex flex-col gap-1 bg-black px-6 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-white md:hidden">
                     <a
-                        href="#about"
+                        href="/#about"
                         onClick={() => setMenuOpen(false)}
                         className="py-3 hover:text-normalyellow"
                     >
                         About
                     </a>
                     <a
-                        href="#tracks"
+                        href="/#tracks"
                         onClick={() => setMenuOpen(false)}
                         className="py-3 hover:text-normalyellow"
                     >
                         Tracks
                     </a>
                     <a
-                        href="#faq"
+                        href="/#faq"
                         onClick={() => setMenuOpen(false)}
                         className="py-3 hover:text-normalyellow"
                     >
                         FAQ
                     </a>
+                    
+                    <a 
+                        href="/map"
+                        onClick={() => setMenuOpen(false)}
+                        className="py-3 hover:text-normalyellow"
+                    >
+                        Map
+                    </a>
+
                     <a
                         href="https://forms.gle/5Cyi44u6HcC5iiZF8"
                         target="_blank"
