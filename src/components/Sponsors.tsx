@@ -16,6 +16,11 @@ const sponsorData = [
     // Gold sponsors
     { id: 3, src: "/images/Logo/spacexaiLogo.svg", alt: "SpaceX AI", rank: "gold" as const },
     // Silver sponsors
+    { id: 6, src: "/images/Logo/nordvpnLogo.svg", alt: "NordVPN", rank: "silver" as const },
+    { id: 7, src: "/images/Logo/nordpassLogo.png", alt: "NordPass", rank: "silver" as const },
+    { id: 8, src: "/images/Logo/incogniLogo.png", alt: "Incogni", rank: "silver" as const },
+    { id: 9, src: "/images/Logo/sailyLogo.png", alt: "Saily", rank: "silver" as const },
+    { id: 10, src: "/images/Logo/coveronLogo.png", alt: "CoverOn", rank: "silver" as const },
     { id: 4, src: "/images/Logo/redBullLogo.svg", alt: "Red Bull", rank: "silver" as const },
     // Bronze sponsors
     { id: 5, src: "/images/Logo/tavilyLogo.svg", alt: "Tavily", rank: "bronze" as const },
@@ -41,27 +46,10 @@ function SponsorLogo({ src, alt, rank }: SponsorLogoProps) {
 export default function Sponsors() {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Group sponsors by rank
-    const platinumSponsors = sponsorData.filter(s => s.rank === "platinum");
-    const goldSponsors = sponsorData.filter(s => s.rank === "gold");
-    const silverSponsors = sponsorData.filter(s => s.rank === "silver");
-    const bronzeSponsors = sponsorData.filter(s => s.rank === "bronze");
-
-    // Create rows:
-    // Row 1: Both Platinum side by side (Ripple + Capital One)
-    // Row 2: Single Gold (SpaceX AI)
-    // Row 3: Silver (Red Bull)
-    // Row 4: Bronze (Tavily) - below Red Bull
-    const rows = [
-        // Row 1: Ripple + Capital One
-        [platinumSponsors[0], platinumSponsors[1]],
-        // Row 2: SpaceX AI
-        [goldSponsors[0]],
-        // Row 3: Red Bull
-        [silverSponsors[0]],
-        // Row 4: Tavily
-        [bronzeSponsors[0]],
-    ].filter(row => row.some(s => s));
+    // One row per tier; logos within a tier wrap onto extra rows as needed.
+    const tiers = (["platinum", "gold", "silver", "bronze"] as const)
+        .map(rank => sponsorData.filter(s => s.rank === rank))
+        .filter(tier => tier.length > 0);
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -86,10 +74,13 @@ export default function Sponsors() {
             const randomY = (Math.random() - 0.5) * range.y;
             let randomRotate = (Math.random() - 0.5) * range.rotate;
 
-            // Pin SpaceX AI (gold) and Red Bull (silver) to opposing tilts so
-            // they read as contrasting angles rather than random noise.
-            if (rank === 'gold') randomRotate = -3;
-            if (rank === 'silver') randomRotate = 4;
+            // Pin certain logos to opposing tilts so paired logos read as
+            // contrasting angles rather than random noise.
+            const alt = logo.querySelector('img')?.getAttribute('alt');
+            if (alt === 'DivHacks') randomRotate = -4;      // Ripple
+            if (alt === 'Capital One') randomRotate = 5;
+            if (alt === 'SpaceX AI') randomRotate = -3;
+            if (alt === 'Red Bull') randomRotate = 4;
             
             // Store in CSS variables
             (logo as HTMLElement).style.setProperty('--random-x', `${randomX}px`);
@@ -103,9 +94,9 @@ export default function Sponsors() {
             <h2 className={styles.sponsorsTitle}>OUR SPONSORS</h2>
             
             <div ref={containerRef} className={styles.sponsorsContainer}>
-                {rows.map((row, rowIndex) => (
-                    <div key={rowIndex} className={styles.sponsorRow}>
-                        {row.map((sponsor) => (
+                {tiers.map((tier, tierIndex) => (
+                    <div key={tierIndex} className={styles.tierRow}>
+                        {tier.map((sponsor) => (
                             <SponsorLogo
                                 key={sponsor.id}
                                 src={sponsor.src}
