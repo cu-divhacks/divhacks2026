@@ -19,6 +19,15 @@ export default function Header() {
             </div>
 
             <nav className="hidden relative z-10 ml-auto md:flex max-w-5xl flex-wrap items-center justify-end gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-white sm:gap-3 lg:gap-4">
+                <a href="/" aria-label="Home" className="mr-1 shrink-0">
+                    <Image
+                        src="/images/Logo/favicon.png"
+                        alt="DivHacks logo"
+                        width={44}
+                        height={44}
+                        className="h-9 w-9 lg:h-11 lg:w-11"
+                    />
+                </a>
                 <a href="/#about" className="lg:text-lg hover:text-normalyellow">
                     About
                 </a>
@@ -70,6 +79,20 @@ export default function Header() {
 
             {menuOpen && (
                 <nav className="absolute left-0 right-0 top-full z-20 flex flex-col gap-1 bg-black px-6 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-white md:hidden">
+                    <a
+                        href="/"
+                        aria-label="Home"
+                        onClick={() => setMenuOpen(false)}
+                        className="py-3"
+                    >
+                        <Image
+                            src="/images/Logo/favicon.png"
+                            alt="DivHacks logo"
+                            width={40}
+                            height={40}
+                            className="h-10 w-10"
+                        />
+                    </a>
                     <a
                         href="/#about"
                         onClick={() => setMenuOpen(false)}
