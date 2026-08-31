@@ -7,7 +7,7 @@ export default function MapPage() {
     return (
         <main>
             <Header />
-            <div style={{ paddingTop: '80px' }}>
+            <div style={{ paddingTop: '24px' }}>
                 <CampusMap />
             </div>
             <Footer />
