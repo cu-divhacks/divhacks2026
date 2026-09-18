@@ -48,6 +48,10 @@ export default function Header() {
                     Map
                 </a>
 
+                <a href="/schedule" className="lg:text-lg hover:text-normalyellow">
+                    Schedule
+                </a>
+
                 <a
                     href="https://forms.gle/5Cyi44u6HcC5iiZF8"
                     target="_blank"
