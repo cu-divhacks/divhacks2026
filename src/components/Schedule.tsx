@@ -164,15 +164,28 @@ const day1Schedule: TimeBlock[] = [
     ],
   },
   {
-    time: "4:30 – 5:30 PM",
+    time: "4:30 – 5:00 PM",
     events: [
       {
-        time: "4:30 – 5:30 PM",
-        title: "Career Fair",
-        category: "social",
-        speaker: "Figma & Partners",
-        location: "Lerner 555",
-        description: "Connect directly with recruiting sponsors and explore open roles. Resumes will be accepted, so come prepared!",
+        time: "4:30 – 5:00 PM",
+        title: "Build Your AI Second Brain with Claude Code and Notion",
+        category: "workshop",
+        speaker: "Vanchhit Khare",
+        location: "Lerner Satow",
+        description: "TBA",
+      },
+    ],
+  },
+  {
+    time: "5:00 – 5:30 PM",
+    events: [
+      {
+        time: "5:00 – 5:30 PM",
+        title: "TBA",
+        category: "workshop",
+        speaker: "",
+        location: "",
+        description: "",
       },
     ],
   },
@@ -197,6 +210,18 @@ const day1Schedule: TimeBlock[] = [
         category: "food",
         location: "Roone Auditorium",
         description: "Evening dinner service.",
+      },
+    ],
+  },
+  {
+    time: "7:00 – 7:30 PM",
+    events: [
+      {
+        time: "7:00 – 7:30 PM",
+        title: "TBA",
+        category: "workshop",
+        location: "",
+        description: "",
       },
     ],
   },
