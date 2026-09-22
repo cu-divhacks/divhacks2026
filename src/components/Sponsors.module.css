@@ -39,7 +39,14 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 20px clamp(24px, 4vw, 64px);
+    /* Row-gap is a bit taller so Red Bull (which wraps below the Nord
+       logos in the silver tier) has more room above it */
+    gap: 32px clamp(24px, 4vw, 64px);
+}
+
+/* Extra breathing room around the SpaceX AI (gold) row on desktop */
+.tierRow:nth-child(2) {
+    margin: 16px 0;
 }
 
 /* Extra breathing room before the bottom (bronze) tier on desktop */
@@ -84,17 +91,8 @@
     object-fit: contain;
 }
 
-/* Playful random offset + tilt — desktop only */
-.sponsorLogo[data-rank] {
-    transform: translate(var(--random-x, 0px), var(--random-y, 0px)) rotate(var(--random-rotate, 0deg));
-}
-
 /* Tablet: keep tier rows, but every logo sits straight with even spacing */
 @media (max-width: 1023px) {
-    .sponsorLogo[data-rank] {
-        transform: none;
-    }
-
     .sponsorsContainer {
         gap: 32px;
         max-width: min(920px, 94vw);
@@ -105,8 +103,9 @@
     }
 
     /* Keep tier spacing even on tablet */
+    .tierRow:nth-child(2),
     .tierRow:last-child {
-        margin-top: 0;
+        margin: 0;
     }
 }
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import styles from "./Sponsors.module.css";
 
 interface SponsorLogoProps {
@@ -11,8 +10,8 @@ interface SponsorLogoProps {
 
 const sponsorData = [
     // Platinum sponsors (largest)
-    { id: 1, src: "/images/Logo/rippleLogo.svg", alt: "DivHacks", rank: "platinum" as const },
-    { id: 2, src: "/images/Logo/capitalOneLogo.svg", alt: "Capital One", rank: "platinum" as const },
+    { id: 1, src: "/images/Logo/capitalOneLogo.svg", alt: "Capital One", rank: "platinum" as const },
+    { id: 2, src: "/images/Logo/rippleLogo.svg", alt: "DivHacks", rank: "platinum" as const },
     // Gold sponsors
     { id: 3, src: "/images/Logo/spacexaiLogo.svg", alt: "SpaceX AI", rank: "gold" as const },
     // Silver sponsors
@@ -44,56 +43,16 @@ function SponsorLogo({ src, alt, rank }: SponsorLogoProps) {
 }
 
 export default function Sponsors() {
-    const containerRef = useRef<HTMLDivElement>(null);
-
     // One row per tier; logos within a tier wrap onto extra rows as needed.
     const tiers = (["platinum", "gold", "silver", "bronze"] as const)
         .map(rank => sponsorData.filter(s => s.rank === rank))
         .filter(tier => tier.length > 0);
 
-    useEffect(() => {
-        if (!containerRef.current) return;
-
-        const logos = containerRef.current.querySelectorAll(`.${styles.sponsorLogo}`);
-        
-        logos.forEach((logo) => {
-            const rank = logo.getAttribute('data-rank');
-            
-            // Define random ranges based on rank
-            const ranges: Record<string, { x: number; y: number; rotate: number }> = {
-                platinum: { x: 40, y: 24, rotate: 16 },  // -8° ~ +8°
-                gold:     { x: 32, y: 20, rotate: 4 },   // -2° ~ +2°
-                silver:   { x: 24, y: 16, rotate: 10 },  // -5° ~ +5°
-                bronze:   { x: 20, y: 12, rotate: 8 },   // -4° ~ +4°
-            };
-            
-            const range = ranges[rank || 'bronze'];
-            
-            // Generate random transform values for each logo
-            const randomX = (Math.random() - 0.5) * range.x;
-            const randomY = (Math.random() - 0.5) * range.y;
-            let randomRotate = (Math.random() - 0.5) * range.rotate;
-
-            // Pin certain logos to opposing tilts so paired logos read as
-            // contrasting angles rather than random noise.
-            const alt = logo.querySelector('img')?.getAttribute('alt');
-            if (alt === 'DivHacks') randomRotate = -4;      // Ripple
-            if (alt === 'Capital One') randomRotate = 5;
-            if (alt === 'SpaceX AI') randomRotate = -3;
-            if (alt === 'Red Bull') randomRotate = 4;
-            
-            // Store in CSS variables
-            (logo as HTMLElement).style.setProperty('--random-x', `${randomX}px`);
-            (logo as HTMLElement).style.setProperty('--random-y', `${randomY}px`);
-            (logo as HTMLElement).style.setProperty('--random-rotate', `${randomRotate}deg`);
-        });
-    }, []);
-
     return (
         <section id="sponsors" className={styles.sponsorsSection}>
             <h2 className={styles.sponsorsTitle}>OUR SPONSORS</h2>
-            
-            <div ref={containerRef} className={styles.sponsorsContainer}>
+
+            <div className={styles.sponsorsContainer}>
                 {tiers.map((tier, tierIndex) => (
                     <div key={tierIndex} className={styles.tierRow}>
                         {tier.map((sponsor) => (
