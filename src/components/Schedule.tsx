@@ -26,123 +26,166 @@ export type TimeBlock = {
 
 const day1Schedule: TimeBlock[] = [
   {
-    time: "9:00 AM",
+    time: "9 AM",
     events: [
       {
-        time: "9:00 AM",
-        title: "Check-in",
+        time: "9 – 10 AM",
+        title: "Check-In",
         category: "logistics",
-        location: "CU Main Gate + Roone Auditorium",
+        location: "Lerner Roone Auditorium",
         description: "Pick up your badge, swag, and stickers before heading in.",
       },
     ],
   },
   {
-    time: "10:00 AM",
+    time: "10 AM",
     events: [
       {
-        time: "10:00 AM",
+        time: "10 – 11 AM",
         title: "Opening Ceremony",
         category: "ceremony",
-        location: "Roone Auditorium",
+        location: "Lerner Roone Auditorium",
         description:
           "Weekend overview, track explanations, sponsor intros, and prize reveals. Hear from our keynote speakers, MLH, Ripple, Tavily, Cursor, Telora, and get ready to hack!",
       },
     ],
   },
   {
-    time: "11:00 AM",
+    time: "11 AM",
     events: [
       {
-        time: "11:00 AM",
-        title: "LinkedIn 101 Workshop",
+        time: "11 – 11:30 AM",
+        title: "MLH 1 Workshop",
         category: "workshop",
-        track: "Sponsor + Health Track",
+        speaker: "TBA",
+        location: "Lerner 568",
+        description: "TBA",
+      },
+    ],
+  },
+  {
+    time: "11:30 AM",
+    events: [
+      {
+        time: "11:30 AM – 12:30 PM",
+        title: "LinkedIn Branding 101",
+        category: "workshop",
         speaker: "Skyler Basco",
-        location: "Lerner Satow",
-        description: "Learn PHRI's track details and expectations.",
+        location: "Lerner Broadway Room",
+        description: "TBA",
       },
-    ],
-  },
-  {
-    time: "All Day",
-    events: [
       {
-        time: "All Day",
-        title: "SpaceX Photobooth",
-        category: "social",
-        location: "Lerner Hall",
-        description: "Stop by anytime during the day to take team photos.",
-      },
-    ],
-  },
-  {
-    time: "12:00 – 12:30 PM",
-    events: [
-      {
-        time: "12:00 – 12:30 PM",
-        title: "DeepSpace",
+        time: "11:30 AM – 12 PM",
+        title: "MLH 2 Workshop",
         category: "workshop",
-        location: "Lerner Broadway",
+        speaker: "TBA",
+        location: "Lerner 568",
+        description: "TBA",
+      },
+      {
+        time: "11:30 AM – 12 PM",
+        title: "DeepSpace SDK Workshop",
+        category: "workshop",
+        speaker: "DeepSpace",
+        location: "Lerner 477",
         description: "DeepSpace platform exploration & ecosystem briefing.",
       },
     ],
   },
   {
-    time: "12:30 – 1:00 PM",
+    time: "12 PM",
     events: [
       {
-        time: "12:30 – 1:00 PM",
-        title: "Prototyping Edge AI & Low-Power Hardware",
+        time: "12 – 1 PM",
+        title: "Build Your Entire Internship Application Stack in 30 Minutes Workshop",
         category: "workshop",
+        speaker: "SpaceXAI",
         location: "Lerner Satow",
+        description: "Automate your job hunting, portfolio, and tracking tools.",
+      },
+      {
+        time: "12 – 12:30 PM",
+        title: "MLH 3 Workshop",
+        category: "workshop",
+        speaker: "TBA",
+        location: "Lerner 568",
+        description: "TBA",
+      },
+      {
+        time: "12 – 12:30 PM",
+        title: "Prototyping Edge AI & Low-Power Hardware Workshop",
+        category: "workshop",
+        speaker: "Akash Mahtani",
+        location: "Lerner 477",
         description:
           "Hands-on architectural patterns for deploying low-power edge neural nets.",
       },
     ],
   },
   {
-    time: "1:00 – 2:00 PM",
+    time: "12:30 PM",
     events: [
       {
-        time: "1:00 – 2:00 PM",
-        title: "Build Your Entire Internship Application Stack in 30 Minutes",
+        time: "12:30 – 1 PM",
+        title: "Tavily Workshop",
         category: "workshop",
-        location: "Lerner 555",
-        description: "Automate your job hunting, portfolio, and tracking tools.",
+        speaker: "TBA",
+        location: "Lerner 477",
+        description: "TBA",
       },
     ],
   },
   {
-    time: "2:00 – 2:40 PM",
+    time: "1 PM",
     events: [
       {
-        time: "2:00 – 2:40 PM",
-        title: "Software Engineering in an AI-Native World",
-        category: "workshop",
-        speaker: "Siddartha Mishra (AP & OS TA; prev intern @ Riot Games, Microsoft, & Meta)",
-        location: "Lerner Satow",
-        description: "The shifting paradigm of SWE and LLM-assisted dev workflows.",
-      },
-    ],
-  },
-  {
-    time: "2:00 – 3:00 PM",
-    events: [
-      {
-        time: "2:00 – 3:00 PM",
+        time: "1 – 2 PM",
         title: "Lunch",
         category: "food",
-        location: "Roone Auditorium",
+        location: "Lerner Roone Auditorium",
         description: "Mid-day meal & hydration break.",
       },
     ],
   },
   {
-    time: "3:00 – 4:00 PM",
+    time: "2 PM",
     events: [
       {
-        time: "3:00 – 4:00 PM",
+        time: "2 – 2:45 PM",
+        title: "Software Engineering in an AI Native World Workshop",
+        category: "workshop",
+        speaker: "Siddartha Mishra (AP & OS TA; prev intern @ Riot Games, Microsoft, & Meta)",
+        location: "Lerner Satow",
+        description: "The shifting paradigm of SWE and LLM-assisted dev workflows.",
+      },
+      {
+        time: "2 – 2:30 PM",
+        title: "Build Your AI Second Brain with Claude Code and Notion",
+        category: "workshop",
+        speaker: "Vanchhit Khare",
+        location: "Lerner 477",
+        description: "TBA",
+      },
+    ],
+  },
+  {
+    time: "2:30 PM",
+    events: [
+      {
+        time: "2:30 – 3 PM",
+        title: "Build a Live iMessage AI Agent with Photon",
+        category: "workshop",
+        speaker: "TBA",
+        location: "Lerner 477",
+        description: "TBA",
+      },
+    ],
+  },
+  {
+    time: "3 PM",
+    events: [
+      {
+        time: "3 – 3:30 PM",
         title: "Build, Ship & Demo Workshop",
         category: "workshop",
         speaker: "Siddarth Reddy",
@@ -152,111 +195,38 @@ const day1Schedule: TimeBlock[] = [
     ],
   },
   {
-    time: "4:00 – 5:00 PM",
+    time: "3:30 PM",
     events: [
       {
-        time: "4:00 – 5:00 PM",
+        time: "3:30 – 4 PM",
         title: "Judges Meet & Greet",
         category: "social",
         location: "Lerner Satow",
-        description: "Introduce yourself and talk ideas with our industry judges. Ask about their academic or career expereience and advice. Due to limited space, the doors will close at 4:05 PM!",
+        description:
+          "Introduce yourself and talk ideas with our industry judges. Ask about their academic or career experience and advice.",
       },
     ],
   },
   {
-    time: "4:30 – 5:00 PM",
+    time: "6 PM",
     events: [
       {
-        time: "4:30 – 5:00 PM",
-        title: "Build Your AI Second Brain with Claude Code and Notion",
-        category: "workshop",
-        speaker: "Vanchhit Khare",
-        location: "Lerner Satow",
-        description: "TBA",
-      },
-    ],
-  },
-  {
-    time: "5:00 – 5:30 PM",
-    events: [
-      {
-        time: "5:00 – 5:30 PM",
-        title: "TBA",
-        category: "workshop",
-        speaker: "",
-        location: "",
-        description: "",
-      },
-    ],
-  },
-  {
-    time: "5:30 – 5:45 PM",
-    events: [
-      {
-        time: "5:30 – 5:45 PM",
-        title: "LinkedIn Speed Dating",
-        category: "social",
-        location: "Roone Auditorium",
-        description: "Quick-fire networking to connect with fellow hackers.",
-      },
-    ],
-  },
-  {
-    time: "6:00 – 6:30 PM",
-    events: [
-      {
-        time: "6:00 – 6:30 PM",
+        time: "6 – 7 PM",
         title: "Dinner",
         category: "food",
-        location: "Roone Auditorium",
+        location: "Lerner Roone Auditorium",
         description: "Evening dinner service.",
       },
     ],
   },
   {
-    time: "7:00 – 7:30 PM",
+    time: "11 PM",
     events: [
       {
-        time: "7:00 – 7:30 PM",
-        title: "TBA",
-        category: "workshop",
-        location: "",
-        description: "",
-      },
-    ],
-  },
-  {
-    time: "7:00 PM",
-    events: [
-      {
-        time: "7:00 PM",
-        title: "Sponsor Session",
-        category: "workshop",
-        location: "Lerner Satow",
-        description: "Technical Q&A and bounty track office hours.",
-      },
-    ],
-  },
-  {
-    time: "8:00 PM",
-    events: [
-      {
-        time: "8:00 PM",
-        title: "Just Dance Break",
-        category: "social",
-        location: "Roone Auditorium",
-        description: "Step away from the screen and dance it out.",
-      },
-    ],
-  },
-  {
-    time: "9:00 PM",
-    events: [
-      {
-        time: "9:00 PM",
-        title: "Late Night Snack: Spicy Ramen Challenge",
+        time: "11 PM – 12 AM",
+        title: "Late Night Ramen",
         category: "food",
-        location: "Roone Auditorium",
+        location: "Carleton Commons",
         description: "Fuel up and test your spice tolerance!",
       },
     ],
@@ -265,129 +235,49 @@ const day1Schedule: TimeBlock[] = [
 
 const day2Schedule: TimeBlock[] = [
   {
-    time: "8:00 AM",
+    time: "8 AM",
     events: [
       {
-        time: "8:00 AM",
+        time: "8 – 9 AM",
         title: "Breakfast",
         category: "food",
-        location: "Roone Auditorium",
-        description: "Menu to be announced. Fuel up for the final day of hacking and presentations.",
+        location: "Carleton Commons",
+        description: "Fuel up for the final day of hacking and presentations.",
       },
     ],
   },
   {
-    time: "11:00 AM",
+    time: "11 AM",
     events: [
       {
-        time: "11:00 AM",
-        title: "Submissions Close",
-        category: "ceremony",
-        description: "Hard project deadline on Devpost — no extensions!",
-      },
-    ],
-  },
-  {
-    time: "11:00 AM – 12:00 PM",
-    events: [
-      {
-        time: "11:00 AM – 12:00 PM",
+        time: "11 AM – 12 PM",
         title: "Lunch",
         category: "food",
-        location: "Roone Auditorium",
-        description: "Pre-expo lunch service.",
+        location: "Lerner Roone Auditorium",
+        description: "Mid-day meal & hydration break.",
       },
     ],
   },
   {
-    time: "1:00 PM",
+    time: "12 PM",
     events: [
       {
-        time: "1:00 PM",
-        title: "Expo Begins",
+        time: "12 – 4 PM",
+        title: "Judging",
         category: "ceremony",
-        location: "Roone Auditorium",
-        description: "Each team gets a table, and 1 member must be present at all times. Members are free to walk around to view other projects. Be prepared to demo and pitch your final product to our sponsors, judges, mentors. Some of our sponsors are looking to hire talent. Each table will be seen by a miniumum of 3 judges to ensure fair evaluation. A 15-min break is imposed to ensure judging + presentation quality remains consistent for both judges and participants. ",
-      }, 
-    ],
-  },
-  {
-    time: "2:00 PM",
-    events: [
-      {
-        time: "2:00 PM",
-        title: "Judging Deliberation Break",
-        category: "logistics",
-        description: "15-minute scoring break window.",
+        location: "Lerner 477",
+        description: "Teams present their projects to judges, who then score and decide prizes.",
       },
     ],
   },
   {
-    time: "2:15 – 3:00 PM",
+    time: "4 PM",
     events: [
       {
-        time: "2:15 – 3:00 PM",
-        title: "Expo Resumes",
-        category: "ceremony",
-        location: "Roone Auditorium",
-      },
-    ],
-  },
-  {
-    time: "3:00 - 3:30 PM",
-    events: [
-      {
-        time: "3:00 - 3:30 PM",
-        title: "Scoring Period",
-        category: "logistics",
-        location: "Roone Auditorium",
-        description: "Ratings will be collected and averaged to determine top performing teams to move on to the finalist round. Be prepared to present a 2-min walkthrough of your project followed by 2-min questions from the judge panel. There will be 6 finalists selected to qualify for top 3 overall. Projects not selected to be finalists will still be considered for general + sponsor tracks winners.",
-      },
-    ],
-  },
-  {
-    time: "3:30 PM",
-    events: [
-      {
-        time: "3:30 PM",
-        title: "Finalists Announced",
-        category: "ceremony",
-        location: "Roone Auditorium",
-      },
-    ],
-  },
-  {
-    time: "3:40 – 4:20 PM",
-    events: [
-      {
-        time: "3:40 – 4:20 PM",
-        title: "Finalists Presentations",
-        category: "ceremony",
-        location: "Lerner Satow",
-        description: "6 selected finalists present a 2-min walkthrough followed by 2-min Q&A to compete for top 3 overall.",
-      },
-    ],
-  },
-  {
-    time: "4:20 – 5:00 PM",
-    events: [
-      {
-        time: "4:20 – 5:00 PM",
-        title: "Presentations",
-        category: "ceremony",
-        location: "Roone Auditorium",
-        description: "Judges will delibrate on overall winners and finalize scoring across overall, general, and sponsor track categories.",
-        }
-    ],
-  },
-  {
-    time: "5:00 PM",
-    events: [
-      {
-        time: "5:00 PM",
+        time: "4 – 5 PM",
         title: "Closing Ceremony",
         category: "ceremony",
-        location: "Roone Auditorium",
+        location: "Lerner Roone Auditorium",
         description: "Category winners announced, trophies, and closing remarks.",
       },
     ],
@@ -447,17 +337,35 @@ function getInternalMapHref(location: string): string {
   return `/map#${slug}`;
 }
 
-function EventCard({ item }: { item: ScheduleItem }) {
+// Concurrent events are shown side by side in compact (stacked) cards
+function EventCard({
+  item,
+  compact = false,
+}: {
+  item: ScheduleItem;
+  compact?: boolean;
+}) {
   const config = CATEGORY_CONFIG[item.category];
 
   return (
     <div
-      className={`rounded-2xl border border-zinc-800 border-l-[8px] ${config.cardBorder} ${config.cardBg} p-6 backdrop-blur-sm transition-all duration-200 hover:bg-zinc-900/80 md:grid md:grid-cols-[160px_1fr_240px] md:items-center md:gap-6`}
+      className={`rounded-2xl border border-zinc-800 border-l-[8px] ${config.cardBorder} ${config.cardBg} p-6 backdrop-blur-sm transition-all duration-200 hover:bg-zinc-900/80 ${
+        compact
+          ? "flex h-full flex-col"
+          : "md:grid md:grid-cols-[160px_1fr_240px] md:items-center md:gap-6"
+      }`}
     >
       {/* 1. Time Column */}
-      <div className="flex flex-col items-center justify-center border-b border-zinc-800/80 pb-3 text-center md:border-b-0 md:border-r md:border-zinc-800/80 md:py-2 md:pr-6">
-        <span className="font-mono text-xl font-black tracking-wide text-normalyellow lg:text-2xl">
-          {item.time}
+      <div
+        className={
+          compact
+            ? "border-b border-zinc-800/80 pb-3"
+            : "flex flex-col items-center justify-center border-b border-zinc-800/80 pb-3 text-center md:border-b-0 md:border-r md:border-zinc-800/80 md:py-2 md:pr-6"
+        }
+      >
+        <span className="font-mono text-base font-black tracking-wide text-normalyellow lg:text-lg">
+          {/* Non-breaking space keeps AM/PM on the same line as its number */}
+          {item.time.replace(/ (AM|PM)/g, " $1")}
         </span>
       </div>
 
@@ -503,7 +411,9 @@ function EventCard({ item }: { item: ScheduleItem }) {
         {item.location && (
           <Link
             href={getInternalMapHref(item.location)}
-            className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-zinc-200 transition-colors hover:text-normalyellow md:hidden"
+            className={`group mt-4 inline-flex items-center gap-2 text-sm font-bold text-zinc-200 transition-colors hover:text-normalyellow ${
+              compact ? "" : "md:hidden"
+            }`}
           >
             <span className="text-base text-normalyellow">📍</span>
             <span className="underline decoration-zinc-600 underline-offset-4 group-hover:decoration-normalyellow">
@@ -514,7 +424,11 @@ function EventCard({ item }: { item: ScheduleItem }) {
       </div>
 
       {/* 3. Location Column (Desktop): Internal /map Button Card */}
-      <div className="hidden flex-col items-end justify-center pl-2 md:flex">
+      <div
+        className={`hidden flex-col items-end justify-center pl-2 ${
+          compact ? "" : "md:flex"
+        }`}
+      >
         {item.location ? (
           <Link
             href={getInternalMapHref(item.location)}
@@ -583,13 +497,24 @@ export default function SchedulePage() {
 
         {/* Schedule Cards */}
         <div className="space-y-4">
-          {currentSchedule.map((block, idx) => (
-            <div key={idx} className="space-y-3">
-              {block.events.map((event, eIdx) => (
-                <EventCard key={`${idx}-${eIdx}`} item={event} />
-              ))}
-            </div>
-          ))}
+          {currentSchedule.map((block, idx) =>
+            block.events.length === 1 ? (
+              <EventCard key={idx} item={block.events[0]} />
+            ) : (
+              <div
+                key={idx}
+                className={`grid gap-3 ${
+                  block.events.length === 2
+                    ? "md:grid-cols-2"
+                    : "md:grid-cols-2 lg:grid-cols-3"
+                }`}
+              >
+                {block.events.map((event, eIdx) => (
+                  <EventCard key={`${idx}-${eIdx}`} item={event} compact />
+                ))}
+              </div>
+            ),
+          )}
         </div>
       </div>
     </main>
