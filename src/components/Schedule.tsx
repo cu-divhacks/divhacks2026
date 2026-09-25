@@ -337,6 +337,120 @@ function getInternalMapHref(location: string): string {
   return `/map#${slug}`;
 }
 
+// Parses a range like "11:30 AM – 12 PM" or "12 – 1 PM" into minutes after
+// midnight. A single time ends when it starts. The start inherits the end's
+// AM/PM when omitted; ranges past midnight end on the next day.
+function parseTimeRange(time: string): { start: number; end: number } {
+  const [startStr, endStr = startStr] = time.split("–").map((s) => s.trim());
+
+  const parse = (s: string, fallbackMeridiem?: string) => {
+    const match = s.match(/^(\d{1,2})(?::(\d{2}))?\s*(AM|PM)?$/);
+    if (!match) return 0;
+    const meridiem = match[3] ?? fallbackMeridiem;
+    let hours = Number(match[1]) % 12;
+    if (meridiem === "PM") hours += 12;
+    return hours * 60 + Number(match[2] ?? 0);
+  };
+
+  let end = parse(endStr);
+  let start = parse(startStr, endStr.match(/AM|PM/)?.[0]);
+  // e.g. "11 – 12 PM": an inherited meridiem that puts start after end
+  if (!/AM|PM/.test(startStr) && start > end) start -= 12 * 60;
+  if (end < start) end += 24 * 60;
+  return { start, end };
+}
+
+type PlacedEvent = {
+  item: ScheduleItem;
+  start: number;
+  end: number;
+  column: number;
+};
+
+// Groups events whose times overlap into clusters, and places each cluster's
+// events into columns so back-to-back sessions stack in one column, keeping
+// sessions in the same room together where possible.
+function buildClusters(blocks: TimeBlock[]): PlacedEvent[][] {
+  const events = blocks
+    .flatMap((block) => block.events)
+    .map((item) => ({ item, ...parseTimeRange(item.time), column: 0 }))
+    .sort((a, b) => a.start - b.start || b.end - a.end);
+
+  const clusters: PlacedEvent[][] = [];
+  let clusterEnd = -Infinity;
+  for (const event of events) {
+    if (event.start >= clusterEnd) clusters.push([]);
+    clusters[clusters.length - 1].push(event);
+    clusterEnd = Math.max(clusterEnd, event.end);
+  }
+
+  for (const cluster of clusters) {
+    const columns: PlacedEvent[] = []; // last event placed in each column
+    const freeColumns = (event: PlacedEvent) =>
+      columns
+        .map((last, i) => ({ last, i }))
+        .filter(({ last }) => last.end <= event.start);
+    const place = (event: PlacedEvent, column: number) => {
+      event.column = column;
+      columns[column] = event;
+    };
+
+    for (const start of new Set(cluster.map((e) => e.start))) {
+      const starting = cluster.filter((e) => e.start === start);
+      // First pass: continue a column already used by the same room
+      const unplaced = starting.filter((event) => {
+        const sameRoom = freeColumns(event).find(
+          ({ last }) => last.item.location === event.item.location,
+        );
+        if (sameRoom) place(event, sameRoom.i);
+        return !sameRoom;
+      });
+      // Second pass: any free column, else a new one
+      for (const event of unplaced) {
+        place(event, freeColumns(event)[0]?.i ?? columns.length);
+      }
+    }
+  }
+  return clusters;
+}
+
+// Lays out a cluster of overlapping events as a grid: one column per track,
+// one row per interval between start/end times, so a card spans rows in
+// proportion to how long it runs. Below lg it collapses to a single column.
+function EventCluster({ events }: { events: PlacedEvent[] }) {
+  const times = [...new Set(events.flatMap((e) => [e.start, e.end]))].sort(
+    (a, b) => a - b,
+  );
+  const columnCount = Math.max(...events.map((e) => e.column)) + 1;
+
+  return (
+    <div
+      className="grid gap-3 lg:grid-cols-(--cols)"
+      style={
+        {
+          "--cols": `repeat(${columnCount}, minmax(0, 1fr))`,
+        } as React.CSSProperties
+      }
+    >
+      {events.map((e) => (
+        <div
+          key={`${e.item.time}-${e.item.title}`}
+          className="flex lg:col-start-(--col) lg:row-start-(--row-start) lg:row-end-(--row-end)"
+          style={
+            {
+              "--col": e.column + 1,
+              "--row-start": times.indexOf(e.start) + 1,
+              "--row-end": times.indexOf(e.end) + 1,
+            } as React.CSSProperties
+          }
+        >
+          <EventCard item={e.item} compact />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // Concurrent events are shown side by side in compact (stacked) cards
 function EventCard({
   item,
@@ -349,10 +463,10 @@ function EventCard({
 
   return (
     <div
-      className={`rounded-2xl border border-zinc-800 border-l-[8px] ${config.cardBorder} ${config.cardBg} p-6 backdrop-blur-sm transition-all duration-200 hover:bg-zinc-900/80 ${
+      className={`rounded-2xl border border-zinc-800 border-l-[8px] ${config.cardBorder} ${config.cardBg} backdrop-blur-sm transition-all duration-200 hover:bg-zinc-900/80 ${
         compact
-          ? "flex h-full flex-col"
-          : "md:grid md:grid-cols-[160px_1fr_240px] md:items-center md:gap-6"
+          ? "flex w-full flex-col p-5"
+          : "p-6 md:grid md:grid-cols-[160px_1fr_240px] md:items-center md:gap-6"
       }`}
     >
       {/* 1. Time Column */}
@@ -386,7 +500,11 @@ function EventCard({
         </div>
 
         {/* Card Title */}
-        <h3 className="text-xl font-black tracking-tight text-white sm:text-2xl">
+        <h3
+          className={`font-black tracking-tight text-white ${
+            compact ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"
+          }`}
+        >
           {item.title}
         </h3>
 
@@ -453,7 +571,9 @@ function EventCard({
 
 export default function SchedulePage() {
   const [activeTab, setActiveTab] = useState<"day1" | "day2">("day1");
-  const currentSchedule = activeTab === "day1" ? day1Schedule : day2Schedule;
+  const clusters = buildClusters(
+    activeTab === "day1" ? day1Schedule : day2Schedule,
+  );
 
   return (
     <main className="min-h-screen bg-black px-4 py-12 text-white sm:px-8 lg:px-16">
@@ -497,22 +617,14 @@ export default function SchedulePage() {
 
         {/* Schedule Cards */}
         <div className="space-y-4">
-          {currentSchedule.map((block, idx) =>
-            block.events.length === 1 ? (
-              <EventCard key={idx} item={block.events[0]} />
+          {clusters.map((cluster) =>
+            cluster.length === 1 ? (
+              <EventCard key={cluster[0].item.title} item={cluster[0].item} />
             ) : (
-              <div
-                key={idx}
-                className={`grid gap-3 ${
-                  block.events.length === 2
-                    ? "md:grid-cols-2"
-                    : "md:grid-cols-2 lg:grid-cols-3"
-                }`}
-              >
-                {block.events.map((event, eIdx) => (
-                  <EventCard key={`${idx}-${eIdx}`} item={event} compact />
-                ))}
-              </div>
+              <EventCluster
+                key={`${cluster[0].item.time}-${cluster[0].item.title}`}
+                events={cluster}
+              />
             ),
           )}
         </div>
