@@ -46,7 +46,7 @@ const day1Schedule: TimeBlock[] = [
         category: "ceremony",
         location: "Lerner Roone Auditorium",
         description:
-          "Weekend overview, track explanations, sponsor intros, and prize reveals. Hear from our keynote speakers, MLH, Ripple, Tavily, Cursor, Telora, and get ready to hack!",
+          "Weekend overview, track explanations, sponsor intros, and prize reveals. Hear from our keynote speakers, MLH, Ripple, Tavily, Cursor, and get ready to hack!",
       },
     ],
   },
@@ -72,7 +72,7 @@ const day1Schedule: TimeBlock[] = [
         category: "workshop",
         speaker: "Skyler Basco",
         location: "Lerner Broadway Room",
-        description: "TBA",
+        description: "A hands-on intensive workshop (with giveaways from Skyler Basco) to help DivHacks builders leverage their projects for visibility, opportunities, and job offers on LinkedIn.",
       },
       {
         time: "11:30 AM – 12 PM",
@@ -154,7 +154,7 @@ const day1Schedule: TimeBlock[] = [
         time: "2 – 2:45 PM",
         title: "Software Engineering in an AI Native World Workshop",
         category: "workshop",
-        speaker: "Siddartha Mishra (AP & OS TA; prev intern @ Riot Games, Microsoft, & Meta)",
+        speaker: "Siddartha Mishra",
         location: "Lerner Satow",
         description: "The shifting paradigm of SWE and LLM-assisted dev workflows.",
       },
