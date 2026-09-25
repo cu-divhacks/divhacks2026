@@ -91,6 +91,14 @@
     object-fit: contain;
 }
 
+.compactMark {
+    width: auto;
+    height: clamp(96px, 10vw, 128px);
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
 /* Tablet: keep tier rows, but every logo sits straight with even spacing */
 @media (max-width: 1023px) {
     .sponsorsContainer {
@@ -135,4 +143,9 @@
     .tierRow .sponsorLogo {
         width: clamp(160px, 62vw, 240px);
     }
+
+    .compactMark {
+        height: clamp(108px, 42vw, 150px);
+    }
+
 }
