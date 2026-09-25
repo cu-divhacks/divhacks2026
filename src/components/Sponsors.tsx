@@ -21,6 +21,8 @@ const sponsorData = [
     { id: 9, src: "/images/Logo/sailyLogo.png", alt: "Saily", rank: "silver" as const },
     { id: 10, src: "/images/Logo/coveronLogo.png", alt: "CoverOn", rank: "silver" as const },
     { id: 4, src: "/images/Logo/redBullLogo.svg", alt: "Red Bull", rank: "silver" as const },
+    { id: 11, src: "/images/Logo/photonLogo.svg", alt: "Photon", rank: "silver" as const },
+    { id: 12, src: "/images/Logo/deepspaceLogo.png", alt: "DeepSpace", rank: "silver" as const, compact: true },
     // Bronze sponsors
     { id: 5, src: "/images/Logo/tavilyLogo.svg", alt: "Tavily", rank: "bronze" as const },
 ];
