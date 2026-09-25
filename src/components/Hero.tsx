@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Header from "./Header";
 
-const COUNTDOWN_TARGET = new Date(2026, 8, 25, 0, 0, 0).getTime();
+// 10:00 AM Eastern (EDT) on Sep 26, 2026
+const COUNTDOWN_TARGET = new Date("2026-09-26T10:00:00-04:00").getTime();
 
 const styles = `
   .hero {

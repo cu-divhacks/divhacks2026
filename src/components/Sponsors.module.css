@@ -24,19 +24,34 @@
 .sponsorsContainer {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    /* Reduced vertical spacing between tiers on desktop */
+    gap: 24px;
     width: 100%;
-    max-width: 900px;
+    /* Use more of the screen width so logos can breathe */
+    max-width: min(1280px, 92vw);
     padding: 20px;
 }
 
-.sponsorRow {
+/* One row per sponsor tier. Logos wrap onto extra rows within the tier
+   automatically when there isn't room for them all on one line. */
+.tierRow {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    min-height: 100px;
+    /* Row-gap is a bit taller so Red Bull (which wraps below the Nord
+       logos in the silver tier) has more room above it */
+    gap: 32px clamp(24px, 4vw, 64px);
+}
+
+/* Extra breathing room around the SpaceX AI (gold) row on desktop */
+.tierRow:nth-child(2) {
+    margin: 16px 0;
+}
+
+/* Extra breathing room before the bottom (bronze) tier on desktop */
+.tierRow:last-child {
+    margin-top: 28px;
 }
 
 /* Base styles */
@@ -52,21 +67,22 @@
     z-index: 10;
 }
 
-/* Rank sizes - Bronze not too small */
+/* Tier sizes - each step down is noticeably smaller than the one above */
 .rankPlatinum {
-    width: clamp(200px, 28vw, 320px);
+    width: clamp(240px, 30vw, 380px);
 }
 
 .rankGold {
-    width: clamp(160px, 22vw, 240px);
+    width: clamp(190px, 22vw, 290px);
 }
 
+/* Sized so all 5 Nord logos sit on one desktop row (Red Bull wraps below) */
 .rankSilver {
-    width: clamp(140px, 18vw, 190px);
+    width: clamp(136px, 14vw, 180px);
 }
 
 .rankBronze {
-    width: clamp(120px, 16vw, 160px);
+    width: clamp(116px, 12vw, 150px);
 }
 
 .sponsorImg {
@@ -75,25 +91,26 @@
     object-fit: contain;
 }
 
-/* Random transforms using CSS variables */
-.sponsorLogo[data-rank="platinum"] {
-    transform: translate(var(--random-x, 0px), var(--random-y, 0px)) rotate(var(--random-rotate, 0deg));
+/* Tablet: keep tier rows, but every logo sits straight with even spacing */
+@media (max-width: 1023px) {
+    .sponsorsContainer {
+        gap: 32px;
+        max-width: min(920px, 94vw);
+    }
+
+    .tierRow {
+        gap: 24px clamp(24px, 4vw, 44px);
+    }
+
+    /* Keep tier spacing even on tablet */
+    .tierRow:nth-child(2),
+    .tierRow:last-child {
+        margin: 0;
+    }
 }
 
-.sponsorLogo[data-rank="gold"] {
-    transform: translate(var(--random-x, 0px), var(--random-y, 0px)) rotate(var(--random-rotate, 0deg));
-}
-
-.sponsorLogo[data-rank="silver"] {
-    transform: translate(var(--random-x, 0px), var(--random-y, 0px)) rotate(var(--random-rotate, 0deg));
-}
-
-.sponsorLogo[data-rank="bronze"] {
-    transform: translate(var(--random-x, 0px), var(--random-y, 0px)) rotate(var(--random-rotate, 0deg));
-}
-
-/* Mobile optimizations */
-@media (max-width: 768px) {
+/* Mobile: single column, all logos the same size, evenly spaced */
+@media (max-width: 640px) {
     .sponsorsSection {
         padding: 48px 16px 64px;
     }
@@ -106,27 +123,16 @@
     .sponsorsContainer {
         gap: 28px;
         padding: 12px;
+        max-width: 440px;
     }
 
-    .sponsorRow {
-        gap: 24px;
-        min-height: 80px;
-    }
-
-    /* Stack logos vertically on mobile when multiple in a row */
-    .sponsorRow:has(> :nth-child(2)) {
+    .tierRow {
         flex-direction: column;
-        gap: 20px;
+        gap: 28px;
     }
-}
 
-@media (max-width: 480px) {
-    .sponsorRow {
-        gap: 16px;
-    }
-    
-    .sponsorPlaceholder {
-        height: 60px;
-        font-size: 0.75rem;
+    /* Uniform size regardless of tier */
+    .tierRow .sponsorLogo {
+        width: clamp(160px, 62vw, 240px);
     }
 }

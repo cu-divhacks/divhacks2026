@@ -6,10 +6,12 @@ import FAQ from "../components/FAQ";
 import Puzzle from "../components/PuzzleGame";
 import Team from "../components/Team";
 import Footer from "../components/Footer";
+import HashScrollFix from "../components/HashScrollFix";
 
 export default function Home() {
     return (
         <>
+            <HashScrollFix />
             <Hero />
             <About />
             <Tracks />

@@ -1,14 +1,14 @@
 import React from "react";
-import CampusMap from "../../components/Map";
+import Schedule from "../../components/Schedule";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-export default function MapPage() {
+export default function SchedulePage() {
     return (
         <main>
             <Header />
             <div style={{ paddingTop: '24px' }}>
-                <CampusMap />
+                <Schedule />
             </div>
             <Footer />
         </main>
