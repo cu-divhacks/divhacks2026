@@ -112,6 +112,14 @@ export default function Header() {
                     </a>
 
                     <a
+                        href="/schedule"
+                        onClick={() => setMenuOpen(false)}
+                        className="py-3 hover:text-normalyellow"
+                    >
+                        Schedule
+                    </a>
+
+                    <a
                         href="https://forms.gle/5Cyi44u6HcC5iiZF8"
                         target="_blank"
                         rel="noopener noreferrer"
