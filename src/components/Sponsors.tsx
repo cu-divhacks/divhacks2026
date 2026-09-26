@@ -11,10 +11,9 @@ interface SponsorLogoProps {
 const sponsorData = [
     // Platinum sponsors (largest)
     { id: 1, src: "/images/Logo/capitalOneLogo.svg", alt: "Capital One", rank: "platinum" as const },
-    { id: 2, src: "/images/Logo/rippleLogo.svg", alt: "DivHacks", rank: "platinum" as const },
+    { id: 2, src: "/images/Logo/rippleLogo.svg", alt: "Ripple", rank: "platinum" as const },
     // Gold sponsors
-    { id: 3, src: "/images/Logo/spacexaiLogo.svg", alt: "SpaceX AI", rank: "gold" as const },
-    // Silver sponsors
+    { id: 3, src: "/images/Logo/spacexaiLogo.svg", alt: "SpaceX AI", rank: "gold" as const },    // Silver sponsors
     { id: 6, src: "/images/Logo/nordvpnLogo.svg", alt: "NordVPN", rank: "silver" as const },
     { id: 7, src: "/images/Logo/nordpassLogo.png", alt: "NordPass", rank: "silver" as const },
     { id: 8, src: "/images/Logo/incogniLogo.png", alt: "Incogni", rank: "silver" as const },
@@ -23,6 +22,7 @@ const sponsorData = [
     { id: 4, src: "/images/Logo/redBullLogo.svg", alt: "Red Bull", rank: "silver" as const },
     { id: 11, src: "/images/Logo/photonLogo.svg", alt: "Photon", rank: "silver" as const },
     { id: 12, src: "/images/Logo/deepspaceLogo.png", alt: "DeepSpace", rank: "silver" as const, compact: true },
+    { id: 13, src: "/images/Logo/elevenLabsLogo.svg", alt: "ElevenLabs", rank: "silver" as const },
     // Bronze sponsors
     { id: 5, src: "/images/Logo/tavilyLogo.svg", alt: "Tavily", rank: "bronze" as const },
 ];

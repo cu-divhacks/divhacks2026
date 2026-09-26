@@ -55,9 +55,9 @@ const day1Schedule: TimeBlock[] = [
     events: [
       {
         time: "11 – 11:30 AM",
-        title: "MLH 1 Workshop",
+        title: "Hacking with GitHub Copilot",
         category: "workshop",
-        speaker: "TBA",
+        speaker: "MLH",
         location: "Lerner 568",
         description: "TBA",
       },
@@ -76,9 +76,9 @@ const day1Schedule: TimeBlock[] = [
       },
       {
         time: "11:30 AM – 12 PM",
-        title: "MLH 2 Workshop",
+        title: "Intro to Google AI Studio",
         category: "workshop",
-        speaker: "TBA",
+        speaker: "MLH",
         location: "Lerner 568",
         description: "TBA",
       },
@@ -105,9 +105,9 @@ const day1Schedule: TimeBlock[] = [
       },
       {
         time: "12 – 12:30 PM",
-        title: "MLH 3 Workshop",
+        title: "TechTogether Meetup",
         category: "workshop",
-        speaker: "TBA",
+        speaker: "MLH",
         location: "Lerner 568",
         description: "TBA",
       },

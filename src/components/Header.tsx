@@ -28,17 +28,8 @@ export default function Header() {
                         className="h-9 w-9 lg:h-11 lg:w-11"
                     />
                 </a>
-                <a href="/#about" className="lg:text-lg hover:text-normalyellow">
-                    About
-                </a>
                 <a href="/#tracks" className="lg:text-lg hover:text-normalyellow">
                     Tracks
-                </a>
-                <a
-                    href="/#sponsors"
-                    className="lg:text-lg hover:text-normalyellow"
-                >
-                    Sponsors
                 </a>
                 <a href="/#faq" className="lg:text-lg hover:text-normalyellow">
                     FAQ
@@ -98,25 +89,11 @@ export default function Header() {
                         />
                     </a>
                     <a
-                        href="/#about"
-                        onClick={() => setMenuOpen(false)}
-                        className="py-3 hover:text-normalyellow"
-                    >
-                        About
-                    </a>
-                    <a
                         href="/#tracks"
                         onClick={() => setMenuOpen(false)}
                         className="py-3 hover:text-normalyellow"
                     >
                         Tracks
-                    </a>
-                    <a
-                        href="/#sponsors"
-                        onClick={() => setMenuOpen(false)}
-                        className="py-3 hover:text-normalyellow"
-                    >
-                        Sponsors
                     </a>
                     <a
                         href="/#faq"

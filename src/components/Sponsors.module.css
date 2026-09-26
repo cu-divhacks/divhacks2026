@@ -73,7 +73,7 @@
 }
 
 .rankGold {
-    width: clamp(190px, 22vw, 290px);
+    width: clamp(230px, 28vw, 360px);
 }
 
 /* Sized so all 5 Nord logos sit on one desktop row (Red Bull wraps below) */
